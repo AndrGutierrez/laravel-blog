@@ -1,0 +1,7 @@
+composer require inertiajs/inertia-laravel
+Rename the welcome.blade.php file found in your resources/views folder to app.blade.php.
+npm install @inertiajs/inertia @inertiajs/inertia-react
+npm install react react-dom @types/react
+
+npm install --save-dev ts-loader typescript
+tsc --init --jsx react
