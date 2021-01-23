@@ -34405,6 +34405,14 @@ var map = {
 	"./Home.jsx": [
 		"./resources/js/Pages/Home.jsx",
 		"resources_js_Pages_Home_jsx"
+	],
+	"./Posts": [
+		"./resources/js/Pages/Posts.jsx",
+		"resources_js_Pages_Posts_jsx"
+	],
+	"./Posts.jsx": [
+		"./resources/js/Pages/Posts.jsx",
+		"resources_js_Pages_Posts_jsx"
 	]
 };
 function webpackAsyncContext(req) {
@@ -34489,7 +34497,7 @@ module.exports = webpackAsyncContext;
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if (chunkId === "resources_js_Pages_Home_jsx") return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_Pages_Home_jsx":1,"resources_js_Pages_Posts_jsx":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};
@@ -34596,7 +34604,7 @@ module.exports = webpackAsyncContext;
 /******/ 					if(installedChunkData) {
 /******/ 						promises.push(installedChunkData[2]);
 /******/ 					} else {
-/******/ 						if("resources_js_Pages_Home_jsx" == chunkId) {
+/******/ 						if(!/^css\/(app|posts)$/.test(chunkId)) {
 /******/ 							// setup Promise in chunk cache
 /******/ 							var promise = new Promise((resolve, reject) => {
 /******/ 								installedChunkData = installedChunks[chunkId] = [resolve, reject];

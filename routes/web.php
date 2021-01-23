@@ -1,17 +1,19 @@
 <?php
 
+/**
+ * PHP Version 7.4.13
+ * @category    MyRoutes
+ * @author      Andrés <andresgutierrezdev@outlook.com>
+ */
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\Backend\PostController;
 
-use Inertia\Inertia;
+Route::get("posts", [PostController::class, 'index'])->middleware("auth");
 
-Route::get('home', function(){
-  return Inertia::render('Home');
-});
+Auth::routes();
 
-/* Auth::routes(); */
-
-/* Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home'); */
-
-/* Auth::routes(); */
-
-/* Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home'); */
+Route::get("/home", [
+    App\Http\Controllers\HomeController::class,
+    "index",
+])->name("home");
