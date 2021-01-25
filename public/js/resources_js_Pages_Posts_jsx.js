@@ -183,11 +183,25 @@ function Post(_ref) {
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
         className: "post-preview nav-link",
         children: post.body.substring(0, 150)
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+        className: "postauthor row col-12 custom-switch",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.InertiaLink, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("img", {
+            src: post.user.profile_picture,
+            alt: "user's profilepic",
+            className: "postauthor-img img-thumbnail"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.InertiaLink, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h6", {
+            className: "postauthor-name col-6",
+            children: post.user.name
+          })
+        })]
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
       className: "post-buttoncontainer col-sm-12 col-lg-3",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.InertiaLink, {
-        href: "",
+        href: "/",
         className: "col-sm-6 col-md-6 col-lg-12",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
           className: "btn btn-success post-buttoncontainer__edit col-12",
@@ -197,7 +211,7 @@ function Post(_ref) {
           })
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.InertiaLink, {
-        href: "",
+        href: "/",
         className: "col-sm-6 col-md-6 col-lg-12",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
           className: "btn btn-danger post-buttoncontainer__delete col-12",
@@ -235,6 +249,7 @@ __webpack_require__.r(__webpack_exports__);
 
 function PostContainer(_ref) {
   var posts = _ref.posts;
+  console.log(posts);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
     className: "container-fluid col-12",
     children: posts.map(function (post) {
@@ -278,7 +293,7 @@ function SearchForm() {
       placeholder: "Search"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.InertiaLink, {
       href: "/",
-      "class": "col-6 col-sm-6 col-md-5 col-lg-4",
+      className: "col-6 col-sm-6 col-md-5 col-lg-4",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", {
         className: "header-form__button btn btn-primary form-control",
         type: "button",

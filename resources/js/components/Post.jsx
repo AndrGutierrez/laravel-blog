@@ -14,14 +14,28 @@ function Post({ post }) {
                 <p className="post-preview nav-link">
                     {post.body.substring(0, 150)}
                 </p>
+                <div className="postauthor row col-12 custom-switch">
+                    <InertiaLink>
+                        <img
+                            src={post.user.profile_picture}
+                            alt="user's profilepic"
+                            className="postauthor-img img-thumbnail"
+                        />
+                    </InertiaLink>
+                    <InertiaLink>
+                        <h6 className="postauthor-name col-6">
+                            {post.user.name}
+                        </h6>
+                    </InertiaLink>
+                </div>
             </div>
             <div className="post-buttoncontainer col-sm-12 col-lg-3">
-                <InertiaLink href="" className="col-sm-6 col-md-6 col-lg-12">
+                <InertiaLink href="/" className="col-sm-6 col-md-6 col-lg-12">
                     <button className="btn btn-success post-buttoncontainer__edit col-12">
                         <span className="button-span">Edit</span>
                     </button>
                 </InertiaLink>
-                <InertiaLink href="" className="col-sm-6 col-md-6 col-lg-12">
+                <InertiaLink href="/" className="col-sm-6 col-md-6 col-lg-12">
                     <button className="btn btn-danger post-buttoncontainer__delete col-12">
                         <span className="button-span">Delete</span>
                     </button>

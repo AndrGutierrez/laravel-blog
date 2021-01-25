@@ -15,7 +15,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::with('user')->latest()->get();
         return Inertia::render('Posts', [
             'posts'=>$posts
         ]);

@@ -12,7 +12,7 @@ function SearchForm() {
                 type="text"
                 placeholder="Search"
             />
-            <InertiaLink href="/" class="col-6 col-sm-6 col-md-5 col-lg-4">
+            <InertiaLink href="/" className="col-6 col-sm-6 col-md-5 col-lg-4">
                 <input
                     className="header-form__button btn btn-primary form-control"
                     type="button"
