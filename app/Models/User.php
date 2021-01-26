@@ -41,7 +41,7 @@ class User extends Authenticatable
      *
      * @return array
      */
-    public function sluggable()
+    public function sluggable(): array
     {
         return [
             "slug" => [

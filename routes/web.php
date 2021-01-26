@@ -9,7 +9,14 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\Backend\PostController;
 
-Route::get("posts", [PostController::class, 'index'])->middleware("auth");
+
+Route::get("posts", [PageController::class, 'posts'])->middleware("auth");
+Route::prefix('u/{user:slug}')->group(function(){ 
+    Route::get("post/{postid:id}/{post:slug?}", [PageController::class, 'post']);
+    Route::get("/", [PageController::class, 'user']);
+});
+
+Route::post('/{post:slug}/delete', [PostController::class, 'destroy'])->name('destroy');
 
 Auth::routes();
 
@@ -18,4 +25,3 @@ Route::get("/home", [
     "index",
 ])->name("home");
 
-Route::post('/{post:slug}/delete', [PostController::class, 'destroy'])->name('destroy');

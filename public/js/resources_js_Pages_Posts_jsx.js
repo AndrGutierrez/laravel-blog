@@ -278,23 +278,29 @@ var Post = function Post(_ref) {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
       className: "post-content col-lg-9",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h4", {
-        className: "nav-link post-title",
+        className: "px-3 pt-2 post-title",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.InertiaLink, {
-          href: "/{post.slug}",
+          href: "/u/".concat(post.user.slug, "/post/").concat(post.id, "/").concat(post.slug),
           children: post.title
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
-        className: "post-preview nav-link",
-        children: post.body.substring(0, 150)
+        className: "post-preview px-3",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.InertiaLink, {
+          className: "post-preview",
+          href: "/u/".concat(post.user.slug, "/post/").concat(post.id, "/").concat(post.slug),
+          children: post.body.substring(0, 150)
+        })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
         className: "postauthor row col-12 custom-switch",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.InertiaLink, {
+          href: "/u/".concat(post.user.slug),
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("img", {
             src: post.user.profile_picture,
             alt: "user's profilepic",
             className: "postauthor-img img-thumbnail"
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.InertiaLink, {
+          href: "/u/".concat(post.user.slug),
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h6", {
             className: "postauthor-name col-6",
             children: post.user.name
@@ -367,12 +373,12 @@ function PostContainer(_ref) {
     console.log(displayed, post.title);
   }
 
-  function handleClickEdit(e) {
+  function handleClickEdit() {
     console.log("I was clicked");
   }
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-    className: "container-fluid col-12",
+    className: "background container-fluid col-12",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Modal__WEBPACK_IMPORTED_MODULE_4__.default, {
       post: selectedPost,
       displayed: displayed,

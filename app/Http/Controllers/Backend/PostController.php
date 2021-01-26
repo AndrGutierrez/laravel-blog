@@ -7,7 +7,6 @@ use App\Http\Requests\PostRequest;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use Inertia\Inertia;
 use Redirect;
 
 class PostController extends Controller
@@ -17,13 +16,6 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $posts = Post::with('user')->latest()->get();
-        return Inertia::render('Posts', [
-            'posts'=>$posts
-        ]);
-    }
 
     /**
      * Show the form for creating a new resource.

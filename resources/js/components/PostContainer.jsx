@@ -12,11 +12,11 @@ function PostContainer({ posts }) {
         setSelectedPost(post);
         console.log(displayed, post.title);
     }
-    function handleClickEdit(e) {
+    function handleClickEdit() {
         console.log("I was clicked");
     }
     return (
-        <div className="container-fluid col-12">
+        <div className="background container-fluid col-12">
             <Modal
                 post={selectedPost}
                 displayed={displayed}
