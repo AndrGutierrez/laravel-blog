@@ -1,0 +1,19 @@
+.custom-modal {
+    background-color: rgba(0, 0, 0, 0.2);
+    position: absolute;
+}
+.modal {
+    animation: modalfadein 0.7s;
+    display: flex;
+}
+.delete-modal-content {
+    background-color: white;
+}
+@keyframes modalfadein {
+    0% {
+        margin-top: -100vh;
+    }
+    100% {
+        margin-top: 0;
+    }
+}

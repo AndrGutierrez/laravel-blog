@@ -1,21 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import Post from "./Post";
 import Button from "./Button";
-import { Inertia } from "@inertiajs/inertia";
+import Modal from "./Modal";
 
 function PostContainer({ posts }) {
-    function handleClickDelete(post) {
-        // setDisplayed(false);
-        Inertia.post(`/${post.slug}/delete`);
-        // .then(()=>);
-        //the method is post because this route uses post method
+    const [displayed, setDisplayed] = useState(false);
+    const [selectedPost, setSelectedPost] = useState(null);
+
+    function DisplayModal(post) {
+        setDisplayed(true);
+        setSelectedPost(post);
+        console.log(displayed, post.title);
     }
     function handleClickEdit(e) {
-        e.preventDefault();
-        alert("a");
+        console.log("I was clicked");
     }
     return (
         <div className="container-fluid col-12">
+            <Modal
+                post={selectedPost}
+                displayed={displayed}
+                setDisplayed={setDisplayed}
+            ></Modal>
             {posts.map((post) => (
                 <Post post={post} key={post.id}>
                     <div
@@ -28,7 +34,7 @@ function PostContainer({ posts }) {
                         ></Button>
                     </div>
                     <div
-                        onClick={() => handleClickDelete(post)}
+                        onClick={() => DisplayModal(post)}
                         className="col-sm-6 col-md-5 col-lg-12"
                     >
                         <Button

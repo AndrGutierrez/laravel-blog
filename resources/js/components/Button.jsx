@@ -1,6 +1,6 @@
 import React from "react";
 
-function Button({ btn_style, btn_value }) {
+const Button = ({ btn_style, btn_value }) => {
     return (
         <input
             type="button"
@@ -8,6 +8,6 @@ function Button({ btn_style, btn_value }) {
             value={btn_value}
         />
     );
-}
+};
 
 export default Button;

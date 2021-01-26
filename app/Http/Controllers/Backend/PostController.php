@@ -3,10 +3,13 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PostRequest;
 use App\Models\Post;
 use Illuminate\Http\Request;
-use \App\Http\Request\PostRequest;
+use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
+use Redirect;
+
 class PostController extends Controller
 {
     /**
@@ -78,9 +81,15 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit(PostRequest $request, Post $post)
     {
         //
+
+        $custom_request= $request->validate([
+            //here are our validations
+        ]);
+        $post->update($custom_request);
+        return Inertia::render('PostEdit', ['post' => $post]);
     }
 
     /**
@@ -92,7 +101,15 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        //deleting the image and saving the new one
+        if($request->file('file')){
+            Storage::disk('public')->delete($post->image);
+            $post->image = $request->file('file')->store('posts', 'public');
+            $post->save();
+        }
+        return Redirect::route('posts');
+        /* return back()->with('status', 'image updated successfully'); */
+        //the status value should be bringed by inertia in component's props I think
     }
 
     /**
@@ -105,7 +122,8 @@ class PostController extends Controller
     {
         //
         $post->delete();
-        return back();
+        return back()->with('status', 'deleted successfully');
+        
         //return Redirect::route("posts")
     }
 }

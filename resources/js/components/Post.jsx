@@ -1,14 +1,11 @@
-import React, { useState } from "react";
 import { InertiaLink } from "@inertiajs/inertia-react";
 
-function Post({ post, children }) {
-    const [confirmModalVisible, setConfirmModalVisible] = useState(false);
-    const [successModalVisible, setSuccessModalVisible] = useState(false);
-
+const Post = ({ post, children }) => {
     return (
         <div
             className="post row table-bordered row-cols-lg-6 row-cols-xs-1 col-lg-8"
             key={post.id}
+            tabIndex="-1"
         >
             <div className="post-content col-lg-9">
                 <h4 className="nav-link post-title">
@@ -33,21 +30,10 @@ function Post({ post, children }) {
                 </div>
             </div>
             <div className="post-buttoncontainer col-sm-12 col-lg-3">
-                {/* <input */}
-                {/*     type="button" */}
-                {/*     className="btn btn-success post-buttoncontainer__button edit col-sm-6 col-md-5 col-lg-12" */}
-                {/*     value="edit" */}
-                {/* /> */}
-                {/* <input */}
-                {/*     type="button" */}
-                {/*     className="btn btn-danger post-buttoncontainer__button delete col-sm-6 col-md-5 col-lg-12" */}
-                {/*     onClick={handleClickDelete} */}
-                {/*     value="delete" */}
-                {/* /> */}
                 {children}
             </div>
         </div>
     );
-}
+};
 
 export default Post;
