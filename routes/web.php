@@ -17,3 +17,5 @@ Route::get("/home", [
     App\Http\Controllers\HomeController::class,
     "index",
 ])->name("home");
+
+Route::post('/{post:slug}/delete', [PostController::class, 'destroy'])->name('destroy');

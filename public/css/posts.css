@@ -4,6 +4,7 @@
     overflow-y: hidden;
     align-items: center;
     height: min-content;
+    transition: 0.7s;
 }
 
 .post-buttoncontainer {
@@ -13,8 +14,7 @@
     height: min-content;
 }
 
-.post-buttoncontainer__delete,
-.post-buttoncontainer__edit {
+.post-buttoncontainer__button {
     font-size: 1.25em;
     animation-duration: 0.5s;
     transition: 0.5s;
@@ -24,10 +24,10 @@
     max-height: 45px;
 }
 
-.post-buttoncontainer__edit {
+.edit {
     color: #2d995b;
 }
-.post-buttoncontainer__delete {
+.delete {
     color: #c51f1a;
 }
 .button-span {
@@ -35,11 +35,6 @@
     transition: 0.5s;
     display: inline-block;
     animation-duration: 0.1s;
-}
-.button-span:hover,
-.button-span:hover {
-    color: white;
-    transform: translateY(-5px) scale(1.01);
 }
 
 .postauthor-img {

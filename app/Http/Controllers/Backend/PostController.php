@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use \App\Http\Request\PostRequest;
 use Inertia\Inertia;
 class PostController extends Controller
 {
@@ -28,7 +29,6 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
@@ -37,9 +37,28 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PostRequest $request)
     {
         //
+        $custom_request= $request->validate([
+            //here are our validations
+        ]);
+        //
+        $post = Post::create([
+            'user_id' => auth()->user()->id
+            //we take the user from the login
+        ] + $custom_request);
+
+        //image
+        if($request->file('file')){
+            $post->image = $request->file('file')->store('posts', 'public');
+            $post->save();
+        }
+
+        return back()->with('status', 'Created successfully');
+        //we create de status session var, in the login view, we send an alert
+        //if it exists, so it will dispay this message, we can use that feature
+        //as a Template in other views
     }
 
     /**
@@ -85,5 +104,8 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         //
+        $post->delete();
+        return back();
+        //return Redirect::route("posts")
     }
 }

@@ -12,6 +12,11 @@ class Post extends Model
     use HasFactory;
     use Sluggable;
 
+    //we are making a massive asignation so we need this config
+    protected $fillable=[
+        'title', 'body', 'iframe', 'image', 'user_id'
+    ];
+
     /**
      * Return the sluggable configuration array for this model.
      *
