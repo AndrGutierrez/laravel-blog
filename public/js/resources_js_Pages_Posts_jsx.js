@@ -14,7 +14,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _components_Header__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Header */ "./resources/js/components/Header.jsx");
-/* harmony import */ var _components_PostContainer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/PostContainer */ "./resources/js/components/PostContainer.jsx");
+/* harmony import */ var _components_PostCardContainer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/PostCardContainer */ "./resources/js/components/PostCardContainer.jsx");
 /* harmony import */ var _components_HamburguerMenu__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/HamburguerMenu */ "./resources/js/components/HamburguerMenu.jsx");
 /* harmony import */ var _components_Footer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/Footer */ "./resources/js/components/Footer.jsx");
 
@@ -28,7 +28,7 @@ __webpack_require__.r(__webpack_exports__);
 function Posts(_ref) {
   var posts = _ref.posts;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_Header__WEBPACK_IMPORTED_MODULE_2__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_PostContainer__WEBPACK_IMPORTED_MODULE_3__.default, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_Header__WEBPACK_IMPORTED_MODULE_2__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_PostCardContainer__WEBPACK_IMPORTED_MODULE_3__.default, {
       posts: posts
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_HamburguerMenu__WEBPACK_IMPORTED_MODULE_4__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_Footer__WEBPACK_IMPORTED_MODULE_5__.default, {})]
   });
@@ -145,7 +145,7 @@ __webpack_require__.r(__webpack_exports__);
 
 function Header() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("header", {
-    className: "header container-fluid",
+    className: "header fixed-top container-fluid",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.InertiaLink, {
       href: "",
       className: "header-title col-5 col-sm-3 col-md-4 col-lg-5 col-xl-5",
@@ -252,10 +252,10 @@ function Modal(_ref) {
 
 /***/ }),
 
-/***/ "./resources/js/components/Post.jsx":
-/*!******************************************!*\
-  !*** ./resources/js/components/Post.jsx ***!
-  \******************************************/
+/***/ "./resources/js/components/PostCard.jsx":
+/*!**********************************************!*\
+  !*** ./resources/js/components/PostCard.jsx ***!
+  \**********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -269,7 +269,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var Post = function Post(_ref) {
+var PostCard = function PostCard(_ref) {
   var post = _ref.post,
       children = _ref.children;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
@@ -314,14 +314,14 @@ var Post = function Post(_ref) {
   }, post.id);
 };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Post);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PostCard);
 
 /***/ }),
 
-/***/ "./resources/js/components/PostContainer.jsx":
-/*!***************************************************!*\
-  !*** ./resources/js/components/PostContainer.jsx ***!
-  \***************************************************/
+/***/ "./resources/js/components/PostCardContainer.jsx":
+/*!*******************************************************!*\
+  !*** ./resources/js/components/PostCardContainer.jsx ***!
+  \*******************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -331,7 +331,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _Post__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Post */ "./resources/js/components/Post.jsx");
+/* harmony import */ var _PostCard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./PostCard */ "./resources/js/components/PostCard.jsx");
 /* harmony import */ var _Button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Button */ "./resources/js/components/Button.jsx");
 /* harmony import */ var _Modal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Modal */ "./resources/js/components/Modal.jsx");
 
@@ -354,7 +354,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-function PostContainer(_ref) {
+function PostCardContainer(_ref) {
   var posts = _ref.posts;
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false),
@@ -384,7 +384,7 @@ function PostContainer(_ref) {
       displayed: displayed,
       setDisplayed: setDisplayed
     }), posts.map(function (post) {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_Post__WEBPACK_IMPORTED_MODULE_2__.default, {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_PostCard__WEBPACK_IMPORTED_MODULE_2__.default, {
         post: post,
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
           onClick: handleClickEdit,
@@ -408,7 +408,7 @@ function PostContainer(_ref) {
   });
 }
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PostContainer);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PostCardContainer);
 
 /***/ }),
 

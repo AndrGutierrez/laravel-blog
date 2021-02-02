@@ -1,3 +1,98 @@
-textarea{
-    resize: none
+.author-profile-pic {
+    border-radius: 50%;
+    object-fit: cover;
+    width: 125px;
+    height: 125px;
+    overflow-y: hidden;
+}
+
+.post-container {
+    margin-top: 85px;
+}
+
+.postcontent {
+    background-color: white;
+    border-radius: 20px;
+    border: solid 5px #f2f4f2;
+}
+
+.comments-textarea {
+    max-height: 100px;
+    min-height: 100px;
+    box-sizing: border-box;
+    resize: none;
+}
+
+.author-profile-pic {
+    border-radius: 50%;
+    object-fit: cover;
+    width: 125px;
+    height: 125px;
+    overflow-y: hidden;
+}
+
+.card {
+    height: 300px;
+    margin: 10px 0 10px 10px;
+    border-radius: 20px 20px 0 0;
+    position: sticky;
+    top: 90px;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    perspective: 1000px;
+    transition: 1s;
+}
+
+.image-container:hover {
+    transform: rotateY(180deg);
+}
+.comments {
+    background: white;
+}
+.comments-comment {
+    background: white;
+}
+.container-title {
+    font-size: 2.5rem;
+}
+.card {
+    padding: 0;
+}
+.card-body {
+    padding: 0;
+}
+@media (max-width: 767px) {
+    .card {
+        position: relative;
+        height: 200px;
+        margin-top: -20px;
+    }
+    .post-container {
+        margin: 0;
+        width: 100vw;
+    }
+    .postcontent {
+        margin-top: 100px !important;
+    }
+    .container-title {
+        font-size: 2rem !important;
+    }
+    .author-name,
+    .author-nickname {
+        text-align: left !important;
+    }
+}
+@media (max-width: 576px) {
+    .card {
+        position: relative;
+        height: 250px;
+        margin-top: -20px;
+    }
+    .author-name,
+    .author-nickname {
+        text-align: center !important;
+    }
 }

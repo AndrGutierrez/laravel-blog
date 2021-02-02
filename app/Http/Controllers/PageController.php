@@ -24,12 +24,15 @@ class PageController extends Controller
     {
         $page_post = Post::where("id", "=", $id)->get();
         $post_author = User::where("id", "=", $page_post[0]->user->id)->get();
-
+        $comments = Comment::where("post_id", "=", $id)->get();
+        /* echo $comments[0]->user; */
         return Inertia::render('Post', [
-            'author'=>$post_author,
-            'post'=>$page_post 
+            'author'=>$post_author[0],
+            'post'=>$page_post[0], 
+            'comments'=>$comments
         ]);
     }
+
     public function user(User $user)
     {
         return Inertia::render('User', [

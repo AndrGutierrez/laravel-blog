@@ -40,4 +40,12 @@ class Post extends Model
     {
         return $this->hasMany(Comment::class);
     }
+    public function getGetImageAttribute(){
+        //if this->image is has a different name it won't work we need to
+        //have exactly the same name as the methor's name after "Get"
+        if($this->image){
+            return url("storage/$this->image");
+            //first we needt o do php artisan storage:link
+        }
+    }
 }

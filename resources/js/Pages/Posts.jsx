@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "../components/Header";
-import PostContainer from "../components/PostContainer";
+import PostCardContainer from "../components/PostCardContainer";
 import HamburguerMenu from "../components/HamburguerMenu";
 import Footer from "../components/Footer";
 
@@ -8,7 +8,7 @@ function Posts({ posts }) {
     return (
         <div>
             <Header></Header>
-            <PostContainer posts={posts}></PostContainer>
+            <PostCardContainer posts={posts}></PostCardContainer>
             <HamburguerMenu></HamburguerMenu>
             <Footer></Footer>
         </div>

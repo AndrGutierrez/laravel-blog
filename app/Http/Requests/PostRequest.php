@@ -14,6 +14,7 @@ class PostRequest extends FormRequest
     public function authorize()
     {
         return true;
+        //it is false by default
     }
 
     /**
