@@ -1,12 +1,15 @@
 import React from "react";
-const Comment = ({ comment, user }) => {
-    console.log(comment.user);
+import MiniAuthor from "./MiniAuthor";
+const Comment = ({ comment }) => {
     return (
-        <div className="comments-comment row col-12 row-cols-1 p-4">
-            <a href="{{ route('user', $comment->user) }}" className="col">
-                <h5 className="comments-comment__user">Lorem Ipsum</h5>
-            </a>
-            <p className="col">{comment.content}</p>
+        <div className="d-flex row  bg-white col-12 p-4 m-2">
+            <div className="d-flex flex-row user row col-12 user-container">
+                <MiniAuthor
+                    creation={comment}
+                    title_style="font-weight-bold comment-user"
+                ></MiniAuthor>
+            </div>
+            <p className="cols-12 row pl-5">{comment.content}</p>
         </div>
     );
 };

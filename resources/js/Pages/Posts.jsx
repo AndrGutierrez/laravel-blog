@@ -6,7 +6,7 @@ import Footer from "../components/Footer";
 
 function Posts({ posts }) {
     return (
-        <div>
+        <div className="posts-container">
             <Header></Header>
             <PostCardContainer posts={posts}></PostCardContainer>
             <HamburguerMenu></HamburguerMenu>

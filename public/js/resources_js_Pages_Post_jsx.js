@@ -63,25 +63,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _MiniAuthor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MiniAuthor */ "./resources/js/components/MiniAuthor.jsx");
+
 
 
 
 
 var Comment = function Comment(_ref) {
-  var comment = _ref.comment,
-      user = _ref.user;
-  console.log(comment.user);
+  var comment = _ref.comment;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-    className: "comments-comment row col-12 row-cols-1 p-4",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("a", {
-      href: "{{ route('user', $comment->user) }}",
-      className: "col",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h5", {
-        className: "comments-comment__user",
-        children: "Lorem Ipsum"
+    className: "d-flex row  bg-white col-12 p-4 m-2",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+      className: "d-flex flex-row user row col-12 user-container",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_MiniAuthor__WEBPACK_IMPORTED_MODULE_2__.default, {
+        creation: comment,
+        title_style: "font-weight-bold comment-user"
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
-      className: "col",
+      className: "cols-12 row pl-5",
       children: comment.content
     })]
   });
@@ -120,7 +119,7 @@ var CommentForm = function CommentForm() {
       id: "",
       className: "",
       rows: "5"
-    }, "className", "comments-textarea col-12 row")), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+    }, "className", "comments-textarea form-control col-12 row")), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
       className: "row",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", {
         type: "submit",
@@ -168,15 +167,11 @@ __webpack_require__.r(__webpack_exports__);
 
 function Comments(_ref) {
   var comments = _ref.comments;
-  comments.map(function (comment) {
-    console.log(comment.user);
-  });
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-    className: "comments col-12 col-sm-12 col-md-11 col-lg-11 row justify-content-center",
+    className: "col-12 col-sm-12 col-md-11 col-lg-11 row justify-content-center",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_CommentForm__WEBPACK_IMPORTED_MODULE_2__.default, {}), comments.map(function (comment) {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Comment__WEBPACK_IMPORTED_MODULE_3__.default, {
-        comment: comment,
-        user: comment.user
+        comment: comment
       }, comment.id);
     })]
   });
@@ -214,10 +209,10 @@ function FloatingUser(_ref) {
         className: "image-container col-12 col-sm-4 col-md-12 col-lg-12 m-2  row justify-content-center",
         id: "profilepic_container",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("img", {
-          src: "{{ $post->user->profile_picture }}",
+          src: user.profile_picture,
           alt: "Profile picture from user",
           id: "profilepic",
-          className: "img-thumbnail author-profile-pic"
+          className: "img-thumbnail author-profile-pic rounded-circle"
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
         className: "author-name col-12 col-sm-7 col-md-12 row m-2",
@@ -324,6 +319,52 @@ function Header() {
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Header);
+
+/***/ }),
+
+/***/ "./resources/js/components/MiniAuthor.jsx":
+/*!************************************************!*\
+  !*** ./resources/js/components/MiniAuthor.jsx ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+
+
+
+
+
+var MiniAuthor = function MiniAuthor(_ref) {
+  var creation = _ref.creation,
+      title_style = _ref.title_style;
+  console.log(title_style);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+    className: "postauthor row col-12 custom-switch",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.InertiaLink, {
+      href: "/u/".concat(creation.user.slug),
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("img", {
+        src: creation.user.profile_picture,
+        alt: "user's profilepic",
+        className: "postauthor-img img-thumbnail"
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.InertiaLink, {
+      href: "/u/".concat(creation.user.slug),
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h6", {
+        className: "postauthor-name col-6 ".concat(title_style),
+        children: creation.user.name
+      })
+    })]
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (MiniAuthor);
 
 /***/ }),
 

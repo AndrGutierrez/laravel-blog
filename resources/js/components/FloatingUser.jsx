@@ -9,10 +9,10 @@ function FloatingUser({ post, user }) {
                     id="profilepic_container"
                 >
                     <img
-                        src="{{ $post->user->profile_picture }}"
+                        src={user.profile_picture}
                         alt="Profile picture from user"
                         id="profilepic"
-                        className="img-thumbnail author-profile-pic"
+                        className="img-thumbnail author-profile-pic rounded-circle"
                     />
                 </div>
                 <div className="author-name col-12 col-sm-7 col-md-12 row m-2">

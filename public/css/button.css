@@ -1,0 +1,32 @@
+.button-span {
+    position: relative;
+    transition: 0.5s;
+    display: inline-block;
+    animation-duration: 0.1s;
+}
+
+.post-buttoncontainer__button {
+    font-size: 1.25em;
+    animation-duration: 0.5s;
+    transition: 0.5s;
+    border-width: 3px;
+    margin: 2px 5px;
+    max-height: 45px;
+    background-color: white;
+    box-sizing: border-box;
+}
+.post-buttoncontainer__button:hover {
+    padding-bottom: 10px !important;
+}
+.edit {
+    color: #2d995b;
+}
+.delete {
+    color: #c51f1a;
+}
+.cancel {
+    color: gray;
+}
+.send {
+    color: #227dc7;
+}

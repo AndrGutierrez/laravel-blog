@@ -1,3 +1,6 @@
+.posts-container {
+    margin-top: 75px;
+}
 .post {
     margin: 10px 0;
     padding: 0 0 10px 0;
@@ -5,7 +8,6 @@
     align-items: center;
     height: min-content;
     transition: 0.7s;
-    background-color: white;
 }
 body {
     background-color: #e9ecef;
@@ -31,53 +33,4 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     height: min-content;
-}
-
-.post-buttoncontainer__button {
-    font-size: 1.25em;
-    animation-duration: 0.5s;
-    transition: 0.5s;
-    border-width: 3px;
-    background: white;
-    margin: 2px 5px;
-    max-height: 45px;
-}
-
-.edit {
-    color: #2d995b;
-}
-.delete {
-    color: #c51f1a;
-}
-.cancel {
-    color: gray;
-}
-.send {
-    color: #227dc7;
-}
-.button-span {
-    position: relative;
-    transition: 0.5s;
-    display: inline-block;
-    animation-duration: 0.1s;
-}
-
-.postauthor {
-    z-index: 1;
-}
-.postauthor-img {
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-    border-radius: 50%;
-    transition: 0.5s;
-}
-.postauthor-name {
-    color: grey;
-}
-.postauthor {
-    align-items: center;
-}
-.postauthor-img:hover {
-    transform: rotateY(180deg);
 }

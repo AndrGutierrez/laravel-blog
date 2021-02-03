@@ -4,7 +4,7 @@ const Button = ({ btn_style, btn_value }) => {
     return (
         <input
             type="button"
-            className={`btn ${btn_style} post-buttoncontainer__button edit col-lg-12`}
+            className={`btn ${btn_style} post-buttoncontainer__button edit col-lg-12 `}
             value={btn_value}
         />
     );

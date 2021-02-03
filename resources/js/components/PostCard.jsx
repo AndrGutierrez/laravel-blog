@@ -1,9 +1,10 @@
 import { InertiaLink } from "@inertiajs/inertia-react";
+import MiniAuthor from "./MiniAuthor";
 
 const PostCard = ({ post, children }) => {
     return (
         <div
-            className="post row table-bordered row-cols-lg-6 row-cols-xs-1 col-lg-8"
+            className="post bg-white row table-bordered row-cols-lg-6 row-cols-xs-1 col-lg-8"
             key={post.id}
             tabIndex="-1"
         >
@@ -23,20 +24,7 @@ const PostCard = ({ post, children }) => {
                         {post.body.substring(0, 150)}
                     </InertiaLink>
                 </p>
-                <div className="postauthor row col-12 custom-switch">
-                    <InertiaLink href={`/u/${post.user.slug}`}>
-                        <img
-                            src={post.user.profile_picture}
-                            alt="user's profilepic"
-                            className="postauthor-img img-thumbnail"
-                        />
-                    </InertiaLink>
-                    <InertiaLink href={`/u/${post.user.slug}`}>
-                        <h6 className="postauthor-name col-6">
-                            {post.user.name}
-                        </h6>
-                    </InertiaLink>
-                </div>
+                <MiniAuthor creation={post} title_style="gray"></MiniAuthor>
             </div>
             <div className="post-buttoncontainer col-sm-12 col-lg-3">
                 {children}
