@@ -8,20 +8,24 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\Backend\PostController;
+use Inertia\Inertia;
 
 
-Route::prefix("posts")->group(function(){
-    Route::get("/", [PageController::class, 'posts'])->middleware("auth");
-    Route::get("/write", [PageController::class, 'write'])->middleware("auth");
-    Route::post('/create', [PostController::class, 'create'])->name('create');
-});
-Route::prefix('u/{user:slug}')->group(function(){ 
+//CHECK https://inertiajs.com/links
+/* Route::prefix("posts")->group(function(){ */
+/*     Route::get("/", [PageController::class, 'posts'])->middleware("auth"); */
+/*     Route::get('/create', [PostController::class, 'create'])->name('create'); */
+/* }); */
+
+Route::prefix('u/{user:slug}')->group(function(){
     Route::get("post/{postid:id}/{post:slug?}", [PageController::class, 'post']);
     Route::get("/", [PageController::class, 'user']);
 });
 
-Route::get('/post/write', [PageController::class, 'write']);
-Route::post('/{post:slug}/delete', [PostController::class, 'destroy'])->name('destroy');
+Route::post('posts/delete/{post:id}', [PostController::class, 'destroy'])->name('posts.destroy');
+//it should use delete method but it doesn't work in other way
+
+
 
 Auth::routes();
 
@@ -30,3 +34,11 @@ Route::get("/home", [
     "index",
 ])->name("home");
 
+Route::resource('posts', 'App\Http\Controllers\Backend\PostController', [
+    'names' =>[
+        'index' => 'posts.index',
+        'destroy' => 'posts.destroy'
+    ]
+])
+    ->middleware('auth')
+    ->except('show', 'destroy');

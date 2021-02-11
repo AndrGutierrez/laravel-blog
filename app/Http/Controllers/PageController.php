@@ -14,13 +14,6 @@ class PageController extends Controller
 {
     //
 
-    public function posts()
-    {
-        $posts = Post::with('user')->latest()->get();
-        return Inertia::render('Posts', [
-            'posts'=>$posts
-        ]);
-    }
 
     public function post(string $author, int $id, string $post_slug)
     {
@@ -43,12 +36,6 @@ class PageController extends Controller
     {
         return Inertia::render('User', [
             'user'=>$user
-        ]);
-    }
-    public function write(){
-        $login = auth()->user();
-        return Inertia::render('WritePost', [
-            'login' => $login
         ]);
     }
 }

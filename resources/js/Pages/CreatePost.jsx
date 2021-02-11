@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "../components/Header";
 import PostForm from "../components/PostForm";
-function WritePost() {
+function CreatePost() {
     return (
         <div className="form-container container-fluid">
             <Header></Header>
@@ -10,4 +10,4 @@ function WritePost() {
     );
 }
 
-export default WritePost;
+export default CreatePost;

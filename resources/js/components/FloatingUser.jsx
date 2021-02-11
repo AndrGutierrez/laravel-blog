@@ -2,7 +2,7 @@ import React from "react";
 
 function FloatingUser({ post, user }) {
     return (
-        <div className="card col-11 col-sm-11 col-md-4 col-lg-4 row">
+        <div className="card floating-user col-11 col-sm-11 col-md-4 col-lg-4 row">
             <div className="author card-body col-12 row align-items-center">
                 <div
                     className="image-container col-12 col-sm-4 col-md-12 col-lg-12 m-2  row justify-content-center"

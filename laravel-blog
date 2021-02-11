@@ -1,0 +1,3 @@
+read text
+$a = grep -r $text
+echo $a

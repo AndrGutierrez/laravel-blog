@@ -3,27 +3,30 @@ import PostCard from "./PostCard";
 import Button from "./Button";
 import Modal from "./Modal";
 
-function PostCardContainer({ posts }) {
+function PostCardContainer({ posts, csrf_token }) {
     const [displayed, setDisplayed] = useState(false);
     const [selectedPost, setSelectedPost] = useState(null);
 
     function DisplayModal(post) {
         setDisplayed(true);
         setSelectedPost(post);
-        console.log(displayed, post.title);
+        // console.log(displayed, post.title);
     }
+
     function handleClickEdit() {
         console.log("I was clicked");
     }
+
     return (
         <div className="background container-fluid col-12">
             <Modal
                 post={selectedPost}
+                csrf_token={csrf_token}
                 displayed={displayed}
                 setDisplayed={setDisplayed}
             ></Modal>
             {posts.map((post) => (
-                <PostCard post={post} key={post.id}>
+                <PostCard post={post} key={post.id} csrf_token={csrf_token}>
                     <div
                         onClick={handleClickEdit}
                         className="col-sm-6 col-md-5 col-lg-12"

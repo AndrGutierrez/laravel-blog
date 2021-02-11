@@ -4,11 +4,14 @@ import PostCardContainer from "../components/PostCardContainer";
 import HamburguerMenu from "../components/HamburguerMenu";
 import Footer from "../components/Footer";
 
-function Posts({ posts }) {
+function Posts({ posts, csrf_token }) {
     return (
         <div className="posts-container">
             <Header></Header>
-            <PostCardContainer posts={posts}></PostCardContainer>
+            <PostCardContainer
+                posts={posts}
+                csrf_token={csrf_token}
+            ></PostCardContainer>
             <HamburguerMenu></HamburguerMenu>
             <Footer></Footer>
         </div>

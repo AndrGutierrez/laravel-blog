@@ -2,7 +2,6 @@ import React from "react";
 import { InertiaLink } from "@inertiajs/inertia-react";
 
 const MiniAuthor = ({ creation, title_style }) => {
-    console.log(title_style);
     return (
         <div className="postauthor row col-12 custom-switch">
             <InertiaLink href={`/u/${creation.user.slug}`}>

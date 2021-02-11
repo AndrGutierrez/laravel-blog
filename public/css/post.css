@@ -8,7 +8,7 @@
     border: solid 5px #f2f4f2;
 }
 
-.comments-textarea {
+.no-resize {
     resize: none;
 }
 
@@ -20,7 +20,7 @@
     overflow-y: hidden;
 }
 
-.card {
+.floating-user {
     height: 300px;
     margin: 10px 0 10px 10px;
     border-radius: 20px 20px 0 0;

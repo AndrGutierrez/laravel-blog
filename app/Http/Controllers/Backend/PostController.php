@@ -6,8 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\PostRequest;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
+/* use Illuminate\Support\Facades\Redirect as FacadesRedirect; */
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
-use Redirect;
+use Illuminate\Support\Facades\URL;
+use Inertia\Inertia;
 
 class PostController extends Controller
 {
@@ -22,8 +26,19 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function index(){
+        $posts = Post::with('user')->latest()->get();
+        $token = csrf_token();
+        return Inertia::render('Posts', [
+            'posts'=>$posts,
+            'csrf_token'=>$token
+        ]);
+
+    }
+
     public function create()
     {
+        return Inertia::render('CreatePost');
     }
 
     /**
@@ -99,7 +114,7 @@ class PostController extends Controller
             $post->image = $request->file('file')->store('posts', 'public');
             $post->save();
         }
-        return Redirect::route('posts');
+        /* return Redirect::route('posts'); */
         /* return back()->with('status', 'image updated successfully'); */
         //the status value should be bringed by inertia in component's props I think
     }
@@ -112,10 +127,16 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
         $post->delete();
-        return back()->with('status', 'deleted successfully');
-        
-        //return Redirect::route("posts")
+        /* return back()->with('status', 'deleted successfully'); */
+        /* $posts = Post::with('user')->latest()->get(); */
+        /* $token = csrf_token(); */
+
+        /* return Inertia::render('Posts', [ */
+        /*     'posts'=>$posts, */
+        /*     'csrf_token'=>$token */
+        /* ]); */
+        return back();
+        //try to put your button in a form idk
     }
 }

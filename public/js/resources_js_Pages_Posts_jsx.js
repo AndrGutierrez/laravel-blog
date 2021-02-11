@@ -58,10 +58,13 @@ __webpack_require__.r(__webpack_exports__);
 var Button = function Button(_ref) {
   var btn_style = _ref.btn_style,
       btn_value = _ref.btn_value;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", {
-    type: "button",
-    className: "btn ".concat(btn_style, " post-buttoncontainer__button edit col-lg-12 "),
-    value: btn_value
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
+    type: "submit",
+    className: "btn ".concat(btn_style, " post-buttoncontainer__button edit btn col-lg-12 "),
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", {
+      className: "button-text",
+      children: btn_value
+    })
   });
 };
 
@@ -154,15 +157,18 @@ function Header() {
         className: "navbar-title display-4",
         children: "Laravel Blog"
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.InertiaLink, {
-      className: "nav-link",
-      children: "Home"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.InertiaLink, {
-      className: "nav-link",
-      children: "Profile"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.InertiaLink, {
-      className: "nav-link",
-      children: "Explore"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+      className: "header-links row",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.InertiaLink, {
+        className: "nav-link",
+        children: "Home"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.InertiaLink, {
+        className: "nav-link",
+        children: "Profile"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.InertiaLink, {
+        className: "nav-link",
+        children: "Explore"
+      })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_SearchForm__WEBPACK_IMPORTED_MODULE_3__.default, {})]
   });
 }
@@ -193,7 +199,6 @@ __webpack_require__.r(__webpack_exports__);
 var MiniAuthor = function MiniAuthor(_ref) {
   var creation = _ref.creation,
       title_style = _ref.title_style;
-  console.log(title_style);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
     className: "postauthor row col-12 custom-switch",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.InertiaLink, {
@@ -244,11 +249,13 @@ function Modal(_ref) {
       setDisplayed = _ref.setDisplayed;
 
   function handleClickDelete(post) {
-    _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_3__.Inertia.post("/".concat(post.slug, "/delete")).then(function () {
-      return displayed = false;
+    _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_3__.Inertia.post("/posts/delete/".concat(post.id), {
+      onSuccess: function onSuccess() {
+        // setDisplayed(false);
+        alert("a");
+      }
     });
-    setDisplayed(false); // .then(()=>);
-    //the method is post because this route uses post method
+    setDisplayed(false);
   }
 
   function handleClickHide() {
@@ -282,9 +289,6 @@ function Modal(_ref) {
               return handleClickHide(post);
             },
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Button__WEBPACK_IMPORTED_MODULE_2__.default, {
-              onClick: function onClick() {
-                return handleClickDelete(post);
-              },
               btn_style: "btn-secondary cancel",
               btn_value: "nah"
             })
@@ -391,7 +395,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function PostCardContainer(_ref) {
-  var posts = _ref.posts;
+  var posts = _ref.posts,
+      csrf_token = _ref.csrf_token;
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false),
       _useState2 = _slicedToArray(_useState, 2),
@@ -405,8 +410,7 @@ function PostCardContainer(_ref) {
 
   function DisplayModal(post) {
     setDisplayed(true);
-    setSelectedPost(post);
-    console.log(displayed, post.title);
+    setSelectedPost(post); // console.log(displayed, post.title);
   }
 
   function handleClickEdit() {
@@ -417,11 +421,13 @@ function PostCardContainer(_ref) {
     className: "background container-fluid col-12",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Modal__WEBPACK_IMPORTED_MODULE_4__.default, {
       post: selectedPost,
+      csrf_token: csrf_token,
       displayed: displayed,
       setDisplayed: setDisplayed
     }), posts.map(function (post) {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_PostCard__WEBPACK_IMPORTED_MODULE_2__.default, {
         post: post,
+        csrf_token: csrf_token,
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
           onClick: handleClickEdit,
           className: "col-sm-6 col-md-5 col-lg-12",

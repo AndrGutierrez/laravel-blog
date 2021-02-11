@@ -11,7 +11,7 @@ const CommentForm = () => {
                 id=""
                 className=""
                 rows="5"
-                className="comments-textarea form-control col-12 row"
+                className="no-resize form-control col-12 row"
             ></textarea>
             {/* @csrf */}
             <div className="row">

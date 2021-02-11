@@ -8,6 +8,7 @@
     align-items: center;
     height: min-content;
     transition: 0.7s;
+    border-radius: 5px;
 }
 body {
     background-color: #e9ecef;

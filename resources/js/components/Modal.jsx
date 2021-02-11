@@ -2,12 +2,15 @@ import React from "react";
 import Button from "./Button";
 import { Inertia } from "@inertiajs/inertia";
 
-function Modal({ post, displayed, setDisplayed }) {
+function Modal({ post, csrf_token, displayed, setDisplayed }) {
     function handleClickDelete(post) {
-        Inertia.post(`/${post.slug}/delete`).then(() => (displayed = false));
+        Inertia.post(`/posts/delete/${post.id}`, {
+            onSuccess: () => {
+                // setDisplayed(false);
+            },
+            _token: csrf_token,
+        });
         setDisplayed(false);
-        // .then(()=>);
-        //the method is post because this route uses post method
     }
     function handleClickHide() {
         setDisplayed(false);
@@ -33,7 +36,6 @@ function Modal({ post, displayed, setDisplayed }) {
 
                             <div onClick={() => handleClickHide(post)}>
                                 <Button
-                                    onClick={() => handleClickDelete(post)}
                                     btn_style="btn-secondary cancel"
                                     btn_value="nah"
                                 ></Button>

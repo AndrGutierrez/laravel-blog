@@ -11,9 +11,11 @@ function Header() {
             >
                 <h3 className="navbar-title display-4">Laravel Blog</h3>
             </InertiaLink>
-            <InertiaLink className="nav-link">Home</InertiaLink>
-            <InertiaLink className="nav-link">Profile</InertiaLink>
-            <InertiaLink className="nav-link">Explore</InertiaLink>
+            <div className="header-links row">
+                <InertiaLink className="nav-link">Home</InertiaLink>
+                <InertiaLink className="nav-link">Profile</InertiaLink>
+                <InertiaLink className="nav-link">Explore</InertiaLink>
+            </div>
 
             <SearchForm></SearchForm>
         </header>

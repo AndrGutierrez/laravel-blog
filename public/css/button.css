@@ -15,8 +15,13 @@
     background-color: white;
     box-sizing: border-box;
 }
-.post-buttoncontainer__button:hover {
-    padding-bottom: 10px !important;
+.button-text {
+    transition: 0.5s;
+    animation-duration: 0.5s;
+}
+.post-buttoncontainer__button:hover .button-text {
+    margin-left: 50px;
+    /* this is just a test */
 }
 .edit {
     color: #2d995b;
@@ -29,4 +34,9 @@
 }
 .send {
     color: #227dc7;
+}
+@keyframes fontChange {
+    100% {
+        font-size: 1.4rem;
+    }
 }

@@ -34398,6 +34398,14 @@ if (false) {} else {
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 var map = {
+	"./CreatePost": [
+		"./resources/js/Pages/CreatePost.jsx",
+		"resources_js_Pages_CreatePost_jsx"
+	],
+	"./CreatePost.jsx": [
+		"./resources/js/Pages/CreatePost.jsx",
+		"resources_js_Pages_CreatePost_jsx"
+	],
 	"./Home": [
 		"./resources/js/Pages/Home.jsx",
 		"resources_js_Pages_Home_jsx"
@@ -34429,14 +34437,6 @@ var map = {
 	"./User.jsx": [
 		"./resources/js/Pages/User.jsx",
 		"resources_js_Pages_User_jsx"
-	],
-	"./WritePost": [
-		"./resources/js/Pages/WritePost.jsx",
-		"resources_js_Pages_WritePost_jsx"
-	],
-	"./WritePost.jsx": [
-		"./resources/js/Pages/WritePost.jsx",
-		"resources_js_Pages_WritePost_jsx"
 	]
 };
 function webpackAsyncContext(req) {
@@ -34521,7 +34521,7 @@ module.exports = webpackAsyncContext;
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_Pages_Home_jsx":1,"resources_js_Pages_Post_jsx":1,"resources_js_Pages_Posts_jsx":1,"resources_js_Pages_User_jsx":1,"resources_js_Pages_WritePost_jsx":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_Pages_CreatePost_jsx":1,"resources_js_Pages_Home_jsx":1,"resources_js_Pages_Post_jsx":1,"resources_js_Pages_Posts_jsx":1,"resources_js_Pages_User_jsx":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};
