@@ -91,13 +91,13 @@ function Header() {
     className: "navbar shadow fixed-top container-fluid",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.InertiaLink, {
       href: "",
-      className: "header-title col-5 col-sm-3 col-md-4 col-lg-5 col-xl-5",
+      className: "header-title col-8 col-sm-6 col-md-3 col-lg-4 col-xl-5",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h3", {
         className: "navbar-title display-4",
         children: "Laravel Blog"
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-      className: "header-links row align-items-center",
+      className: "header-links row align-items-center col-8 col-sm-6 col-md-5 col-lg-4 d-none d-sm-flex",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.InertiaLink, {
         className: "nav-link",
         children: "Home"
@@ -286,14 +286,14 @@ __webpack_require__.r(__webpack_exports__);
 function SearchForm() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("form", {
     action: "submit",
-    className: "header-form row d-none d-sm-flex col-sm-5 col-md-4 col-lg-4 col-xl-3",
+    className: "header-form row d-none d-md-flex col-sm-3 col-md-4 col-lg-4 col-xl-3",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", {
       className: "header-form__text form-control col-sm-8 col-sm-6 col-md-8",
       type: "text",
       placeholder: "Search"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.InertiaLink, {
       href: "/",
-      className: "col-sm-4 col-md-4 col-lg-4",
+      className: "col-sm-4 col-md-4 col-lg-4 px-sm-1",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", {
         className: "header-form__button btn btn-primary form-control",
         type: "button",

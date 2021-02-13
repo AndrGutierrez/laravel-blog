@@ -7,11 +7,11 @@ function Header() {
         <header className="navbar shadow fixed-top container-fluid">
             <InertiaLink
                 href=""
-                className="header-title col-5 col-sm-3 col-md-4 col-lg-5 col-xl-5"
+                className="header-title col-8 col-sm-6 col-md-3 col-lg-4 col-xl-5"
             >
                 <h3 className="navbar-title display-4">Laravel Blog</h3>
             </InertiaLink>
-            <div className="header-links row align-items-center">
+            <div className="header-links row align-items-center col-8 col-sm-6 col-md-5 col-lg-4 d-none d-sm-flex">
                 <InertiaLink className="nav-link">Home</InertiaLink>
                 <InertiaLink className="nav-link">Profile</InertiaLink>
                 <InertiaLink className="nav-link">Explore</InertiaLink>

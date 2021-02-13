@@ -5,14 +5,17 @@ function SearchForm() {
     return (
         <form
             action="submit"
-            className="header-form row d-none d-sm-flex col-sm-5 col-md-4 col-lg-4 col-xl-3"
+            className="header-form row d-none d-md-flex col-sm-3 col-md-4 col-lg-4 col-xl-3"
         >
             <input
                 className="header-form__text form-control col-sm-8 col-sm-6 col-md-8"
                 type="text"
                 placeholder="Search"
             />
-            <InertiaLink href="/" className="col-sm-4 col-md-4 col-lg-4">
+            <InertiaLink
+                href="/"
+                className="col-sm-4 col-md-4 col-lg-4 px-sm-1"
+            >
                 <input
                     className="header-form__button btn btn-primary form-control"
                     type="button"
