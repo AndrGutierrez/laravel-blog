@@ -24,6 +24,7 @@ Route::prefix('u/{user:slug}')->group(function(){
 
 Route::post('posts/delete/{post:id}', [PostController::class, 'destroy'])->name('posts.destroy');
 //it should use delete method but it doesn't work in other way
+Route::post('posts/create', [PostController::class, 'create']);
 
 
 
@@ -34,11 +35,6 @@ Route::get("/home", [
     "index",
 ])->name("home");
 
-Route::resource('posts', 'App\Http\Controllers\Backend\PostController', [
-    'names' =>[
-        'index' => 'posts.index',
-        'destroy' => 'posts.destroy'
-    ]
-])
+Route::resource('posts', 'App\Http\Controllers\Backend\PostController')
     ->middleware('auth')
     ->except('show', 'destroy');

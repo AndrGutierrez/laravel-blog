@@ -26,11 +26,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function Posts(_ref) {
-  var posts = _ref.posts;
+  var posts = _ref.posts,
+      csrf_token = _ref.csrf_token;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
     className: "posts-container",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_Header__WEBPACK_IMPORTED_MODULE_2__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_PostCardContainer__WEBPACK_IMPORTED_MODULE_3__.default, {
-      posts: posts
+      posts: posts,
+      csrf_token: csrf_token
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_HamburguerMenu__WEBPACK_IMPORTED_MODULE_4__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_Footer__WEBPACK_IMPORTED_MODULE_5__.default, {})]
   });
 }
@@ -149,7 +151,7 @@ __webpack_require__.r(__webpack_exports__);
 
 function Header() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("header", {
-    className: "header fixed-top container-fluid",
+    className: "navbar shadow fixed-top container-fluid",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.InertiaLink, {
       href: "",
       className: "header-title col-5 col-sm-3 col-md-4 col-lg-5 col-xl-5",
@@ -245,15 +247,15 @@ __webpack_require__.r(__webpack_exports__);
 
 function Modal(_ref) {
   var post = _ref.post,
+      csrf_token = _ref.csrf_token,
       displayed = _ref.displayed,
       setDisplayed = _ref.setDisplayed;
 
   function handleClickDelete(post) {
     _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_3__.Inertia.post("/posts/delete/".concat(post.id), {
-      onSuccess: function onSuccess() {
-        // setDisplayed(false);
-        alert("a");
-      }
+      onSuccess: function onSuccess() {// setDisplayed(false);
+      },
+      _token: csrf_token
     });
     setDisplayed(false);
   }

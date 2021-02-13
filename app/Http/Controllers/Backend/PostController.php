@@ -52,20 +52,23 @@ class PostController extends Controller
         //
         $custom_request= $request->validate([
             //here are our validations
+            'title' => "required",
+            'body' => "required"
         ]);
         //
         $post = Post::create([
-            'user_id' => auth()->user()->id
+            'user_id' => auth()->user()->id,
             //we take the user from the login
         ] + $custom_request);
 
         //image
         if($request->file('file')){
+            return 'a';
             $post->image = $request->file('file')->store('posts', 'public');
             $post->save();
         }
 
-        return back()->with('status', 'Created successfully');
+        return back();
         //we create de status session var, in the login view, we send an alert
         //if it exists, so it will dispay this message, we can use that feature
         //as a Template in other views

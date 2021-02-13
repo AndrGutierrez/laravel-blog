@@ -4,7 +4,7 @@ import SearchForm from "./SearchForm";
 
 function Header() {
     return (
-        <header className="header fixed-top container-fluid">
+        <header className="navbar shadow fixed-top container-fluid">
             <InertiaLink
                 href=""
                 className="header-title col-5 col-sm-3 col-md-4 col-lg-5 col-xl-5"
