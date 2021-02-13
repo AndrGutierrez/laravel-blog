@@ -27,24 +27,22 @@ function PostCardContainer({ posts, csrf_token }) {
             ></Modal>
             {posts.map((post) => (
                 <PostCard post={post} key={post.id} csrf_token={csrf_token}>
-                    <div
+                    <button
+                        className="btn btn-success edit post-buttoncontainer__button col-12"
+                        type="button"
                         onClick={handleClickEdit}
-                        className="col-sm-6 col-md-5 col-lg-12"
                     >
-                        <Button
-                            btn_style="btn-success edit"
-                            btn_value="edit"
-                        ></Button>
-                    </div>
-                    <div
+                        <div className="button-text">Edit</div>
+                        <div className="animated-text d-none">Edit</div>
+                    </button>
+                    <button
+                        className="btn btn-danger delete post-buttoncontainer__button col-12"
+                        type="button"
                         onClick={() => DisplayModal(post)}
-                        className="col-sm-6 col-md-5 col-lg-12"
                     >
-                        <Button
-                            btn_style="btn-danger delete"
-                            btn_value="delete"
-                        ></Button>
-                    </div>
+                        <div className="animated-text d-none">Delete</div>
+                        <div className="button-text">Delete</div>
+                    </button>
                 </PostCard>
             ))}
         </div>

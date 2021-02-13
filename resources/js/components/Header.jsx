@@ -11,7 +11,7 @@ function Header() {
             >
                 <h3 className="navbar-title display-4">Laravel Blog</h3>
             </InertiaLink>
-            <div className="header-links row">
+            <div className="header-links row align-items-center">
                 <InertiaLink className="nav-link">Home</InertiaLink>
                 <InertiaLink className="nav-link">Profile</InertiaLink>
                 <InertiaLink className="nav-link">Explore</InertiaLink>

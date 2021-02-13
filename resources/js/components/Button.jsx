@@ -6,7 +6,7 @@ const Button = ({ btn_style, btn_value }) => {
             type="submit"
             className={`btn ${btn_style} post-buttoncontainer__button edit btn col-lg-12 `}
         >
-            <span className="button-text">{btn_value}</span>
+            <h5 className="button-text m-0 py-1">{btn_value}</h5>
         </button>
     );
 };

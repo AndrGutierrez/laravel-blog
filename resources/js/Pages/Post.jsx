@@ -8,7 +8,7 @@ function Post({ author, post, comments }) {
     return (
         <div>
             <Header></Header>
-            <div className="post-container row container-fluid justify-content-center">
+            <div className="post-container row container-fluid justify-content-center mx-0">
                 <FloatingUser user={author}></FloatingUser>
                 <div className="container-fluid col-12 col-sm-12 col-md-8 col-lg-8 row justify-content-center">
                     <FullPost post={post}></FullPost>

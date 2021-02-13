@@ -10,7 +10,7 @@
 }
 header {
     width: 100vw;
-    height: 65px;
+    /* height: 65px; */
     align-items: center;
     display: flex;
     z-index: 10;
@@ -30,10 +30,10 @@ a.header-title:hover {
 }
 @keyframes titlefadein {
     0% {
-        margin-left: -250px;
+        transform: translateX(-250px);
     }
     50% {
-        margin-left: 10px;
+        transform: translateX(20px);
     }
 }
 

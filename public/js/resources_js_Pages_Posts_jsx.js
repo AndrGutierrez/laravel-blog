@@ -63,8 +63,8 @@ var Button = function Button(_ref) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
     type: "submit",
     className: "btn ".concat(btn_style, " post-buttoncontainer__button edit btn col-lg-12 "),
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", {
-      className: "button-text",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h5", {
+      className: "button-text m-0 py-1",
       children: btn_value
     })
   });
@@ -160,7 +160,7 @@ function Header() {
         children: "Laravel Blog"
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-      className: "header-links row",
+      className: "header-links row align-items-center",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.InertiaLink, {
         className: "nav-link",
         children: "Home"
@@ -202,9 +202,10 @@ var MiniAuthor = function MiniAuthor(_ref) {
   var creation = _ref.creation,
       title_style = _ref.title_style;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-    className: "postauthor row col-12 custom-switch",
+    className: "postauthor row col-12",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.InertiaLink, {
       href: "/u/".concat(creation.user.slug),
+      className: "postauthor-img-container py- py-1 px-2",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("img", {
         src: creation.user.profile_picture,
         alt: "user's profilepic",
@@ -213,7 +214,7 @@ var MiniAuthor = function MiniAuthor(_ref) {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.InertiaLink, {
       href: "/u/".concat(creation.user.slug),
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h6", {
-        className: "postauthor-name col-6 ".concat(title_style),
+        className: "postauthor-name ".concat(title_style),
         children: creation.user.name
       })
     })]
@@ -237,7 +238,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Button */ "./resources/js/components/Button.jsx");
+/* harmony import */ var _MiniAuthor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MiniAuthor */ "./resources/js/components/MiniAuthor.jsx");
 /* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
 
 
@@ -267,33 +268,45 @@ function Modal(_ref) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
     children: displayed && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
       className: "container-fluid modal min-vh-100 justify-content-center align-items-center",
+      role: "dialog",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
         className: "custom-modal min-vh-100 col-12",
         onClick: handleClickHide
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-        className: "modal-content pt-4 px-5 col-10 col-md-4 col-lg-4 col-xl-4",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h4", {
-          children: "You want to delete this post?"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", {
-          children: "there will be no way back :("
+        className: "modal-content py-2  col-10 col-md-7 col-lg-5 col-xl-4",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+          className: "modal-content__header row justify-content-between pr-3 pr-sm-4 pr-md-2",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h3", {
+            className: "modal-title col-11 pb-2",
+            children: "You want to delete this post?"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
+            className: "close",
+            onClick: handleClickHide,
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", {
+              children: "\xD7"
+            })
+          })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-          className: "modal-buttoncontainer py-4",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+          className: "modal-content__postpreview row card m-0 pl-4 pr-2 py-3",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h5", {
+            children: post.title
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_MiniAuthor__WEBPACK_IMPORTED_MODULE_2__.default, {
+            creation: post
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+          className: "modal-buttoncontainer row justify-content-center pt-3",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", {
+            className: "btn-secondary btn cancel post-buttoncontainer__button col-11 col-sm-5",
+            type: "button",
+            value: "nah",
+            onClick: handleClickHide
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", {
+            className: "btn-primary btn send post-buttoncontainer__button col-11 col-sm-5",
+            type: "button",
+            value: "yes!",
             onClick: function onClick() {
               return handleClickDelete(post);
-            },
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Button__WEBPACK_IMPORTED_MODULE_2__.default, {
-              btn_style: "btn-primary send",
-              btn_value: "yes!"
-            })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-            onClick: function onClick() {
-              return handleClickHide(post);
-            },
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Button__WEBPACK_IMPORTED_MODULE_2__.default, {
-              btn_style: "btn-secondary cancel",
-              btn_value: "nah"
-            })
+            }
           })]
         })]
       })]
@@ -345,9 +358,12 @@ var PostCard = function PostCard(_ref) {
           href: "/u/".concat(post.user.slug, "/post/").concat(post.id, "/").concat(post.slug),
           children: post.body.substring(0, 150)
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_MiniAuthor__WEBPACK_IMPORTED_MODULE_2__.default, {
-        creation: post,
-        title_style: "gray"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+        className: "",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_MiniAuthor__WEBPACK_IMPORTED_MODULE_2__.default, {
+          creation: post,
+          title_style: "gray"
+        })
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
       className: "post-buttoncontainer col-sm-12 col-lg-3",
@@ -430,22 +446,30 @@ function PostCardContainer(_ref) {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_PostCard__WEBPACK_IMPORTED_MODULE_2__.default, {
         post: post,
         csrf_token: csrf_token,
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("button", {
+          className: "btn btn-success edit post-buttoncontainer__button col-12",
+          type: "button",
           onClick: handleClickEdit,
-          className: "col-sm-6 col-md-5 col-lg-12",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Button__WEBPACK_IMPORTED_MODULE_3__.default, {
-            btn_style: "btn-success edit",
-            btn_value: "edit"
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+            className: "button-text",
+            children: "Edit"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+            className: "animated-text d-none",
+            children: "Edit"
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("button", {
+          className: "btn btn-danger delete post-buttoncontainer__button col-12",
+          type: "button",
           onClick: function onClick() {
             return DisplayModal(post);
           },
-          className: "col-sm-6 col-md-5 col-lg-12",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Button__WEBPACK_IMPORTED_MODULE_3__.default, {
-            btn_style: "btn-danger delete",
-            btn_value: "delete"
-          })
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+            className: "animated-text d-none",
+            children: "Delete"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+            className: "button-text",
+            children: "Delete"
+          })]
         })]
       }, post.id);
     })]

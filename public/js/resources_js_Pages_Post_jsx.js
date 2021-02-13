@@ -31,7 +31,7 @@ function Post(_ref) {
       comments = _ref.comments;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_Header__WEBPACK_IMPORTED_MODULE_2__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-      className: "post-container row container-fluid justify-content-center",
+      className: "post-container row container-fluid justify-content-center mx-0",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_FloatingUser__WEBPACK_IMPORTED_MODULE_4__.default, {
         user: author
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
@@ -202,17 +202,20 @@ function FloatingUser(_ref) {
   var post = _ref.post,
       user = _ref.user;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-    className: "card floating-user col-11 col-sm-11 col-md-4 col-lg-4 row",
+    className: "card floating-user col-11 col-sm-11 col-md-4 col-lg-4 row m-2 h-25  shadow-sm",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
       className: "author card-body col-12 row align-items-center",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-        className: "image-container col-12 col-sm-4 col-md-12 col-lg-12 m-2  row justify-content-center",
+        className: "image-container col-12 col-sm-4 col-md-12 col-lg-12  row justify-content-center m-0 p-0",
         id: "profilepic_container",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("img", {
-          src: user.profile_picture,
-          alt: "Profile picture from user",
-          id: "profilepic",
-          className: "img-thumbnail author-profile-pic rounded-circle"
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+          className: "author-profile-pic-container p-2",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("img", {
+            src: user.profile_picture,
+            alt: "Profile picture from user",
+            id: "profilepic",
+            className: "img-thumbnail author-profile-pic rounded-circle"
+          })
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
         className: "author-name col-12 col-sm-7 col-md-12 row m-2",
@@ -306,7 +309,7 @@ function Header() {
         children: "Laravel Blog"
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-      className: "header-links row",
+      className: "header-links row align-items-center",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.InertiaLink, {
         className: "nav-link",
         children: "Home"
@@ -348,9 +351,10 @@ var MiniAuthor = function MiniAuthor(_ref) {
   var creation = _ref.creation,
       title_style = _ref.title_style;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-    className: "postauthor row col-12 custom-switch",
+    className: "postauthor row col-12",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.InertiaLink, {
       href: "/u/".concat(creation.user.slug),
+      className: "postauthor-img-container py- py-1 px-2",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("img", {
         src: creation.user.profile_picture,
         alt: "user's profilepic",
@@ -359,7 +363,7 @@ var MiniAuthor = function MiniAuthor(_ref) {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.InertiaLink, {
       href: "/u/".concat(creation.user.slug),
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h6", {
-        className: "postauthor-name col-6 ".concat(title_style),
+        className: "postauthor-name ".concat(title_style),
         children: creation.user.name
       })
     })]

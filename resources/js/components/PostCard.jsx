@@ -24,7 +24,9 @@ const PostCard = ({ post, children }) => {
                         {post.body.substring(0, 150)}
                     </InertiaLink>
                 </p>
-                <MiniAuthor creation={post} title_style="gray"></MiniAuthor>
+                <div className="">
+                    <MiniAuthor creation={post} title_style="gray"></MiniAuthor>
+                </div>
             </div>
             <div className="post-buttoncontainer col-sm-12 col-lg-3">
                 {children}
