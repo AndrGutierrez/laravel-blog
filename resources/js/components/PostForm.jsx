@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Inertia } from "@inertiajs/inertia";
 
 import Button from "./Button";
 
-function PostForm() {
+function PostForm({ post }) {
     // let data = new FormData();
     // TODO
 
@@ -12,12 +12,24 @@ function PostForm() {
         body: "",
         file: "",
     });
+
     const [success, setSuccess] = useState(false);
+
+    if (post !== undefined) {
+        useEffect(() => {
+            setValues((values) => ({
+                ...values,
+                title: post.title,
+                body: post.body,
+                file: post.file,
+            }));
+            console.log(values);
+        }, [post.title, post.body, post.file]);
+    }
 
     function handleSubmit(e) {
         e.preventDefault();
-        console.log(values);
-        Inertia.post("/posts", data, {
+        Inertia.post("/posts", values, {
             onSuccess: () => {
                 setSuccess(true);
                 setTimeout(() => setSuccess(false), 10000);
@@ -27,7 +39,6 @@ function PostForm() {
     function handleChange(e) {
         const key = e.target.id;
         const value = e.target.value;
-        console.log(e.target);
         setValues((values) => ({
             ...values,
             [key]: value,

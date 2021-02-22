@@ -63,7 +63,7 @@ class PostController extends Controller
 
         //image
         if($request->file('file')){
-            return 'a';
+            /*FIXME*/
             $post->image = $request->file('file')->store('posts', 'public');
             $post->save();
         }
@@ -80,10 +80,10 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
-    {
-        //
-    }
+    /* public function show(Post $post) */
+    /* { */
+    /*     // */
+    /* } */
 
     /**
      * Show the form for editing the specified resource.
@@ -91,15 +91,11 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(PostRequest $request, Post $post)
+    public function edit(int $id, string $post_slug)
     {
         //
-
-        $custom_request= $request->validate([
-            //here are our validations
-        ]);
-        $post->update($custom_request);
-        return Inertia::render('PostEdit', ['post' => $post]);
+        $post = Post::where("id", "=", $id)->get()[0];
+        return Inertia::render('EditPost', ['post' => $post]);
     }
 
     /**
@@ -109,17 +105,22 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(PostRequest $request, Post $post)
     {
         //deleting the image and saving the new one
+        $post_request = [
+            'title'=> $request->title,
+            'body' => $request->body
+        ];
+
+        $post->update($post_request);
         if($request->file('file')){
             Storage::disk('public')->delete($post->image);
             $post->image = $request->file('file')->store('posts', 'public');
             $post->save();
         }
         /* return Redirect::route('posts'); */
-        /* return back()->with('status', 'image updated successfully'); */
-        //the status value should be bringed by inertia in component's props I think
+        return back();
     }
 
     /**

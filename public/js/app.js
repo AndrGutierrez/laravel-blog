@@ -34406,6 +34406,14 @@ var map = {
 		"./resources/js/Pages/CreatePost.jsx",
 		"resources_js_Pages_CreatePost_jsx"
 	],
+	"./EditPost": [
+		"./resources/js/Pages/EditPost.jsx",
+		"resources_js_Pages_EditPost_jsx"
+	],
+	"./EditPost.jsx": [
+		"./resources/js/Pages/EditPost.jsx",
+		"resources_js_Pages_EditPost_jsx"
+	],
 	"./Home": [
 		"./resources/js/Pages/Home.jsx",
 		"resources_js_Pages_Home_jsx"
@@ -34521,7 +34529,7 @@ module.exports = webpackAsyncContext;
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_Pages_CreatePost_jsx":1,"resources_js_Pages_Home_jsx":1,"resources_js_Pages_Post_jsx":1,"resources_js_Pages_Posts_jsx":1,"resources_js_Pages_User_jsx":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_Pages_CreatePost_jsx":1,"resources_js_Pages_EditPost_jsx":1,"resources_js_Pages_Home_jsx":1,"resources_js_Pages_Post_jsx":1,"resources_js_Pages_Posts_jsx":1,"resources_js_Pages_User_jsx":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

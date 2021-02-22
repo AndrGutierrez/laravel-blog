@@ -26,12 +26,15 @@ function Modal({ post, csrf_token, displayed, setDisplayed }) {
                         className="custom-modal min-vh-100 col-12"
                         onClick={handleClickHide}
                     ></div>
-                    <div className="modal-content py-2  col-10 col-md-7 col-lg-5 col-xl-4">
+                    <div className="modal-content py-2  col-10 col-md-8 col-lg-6 col-xl-5">
                         <div className="modal-content__header row justify-content-between pr-3 pr-sm-4 pr-md-2">
                             <h3 className="modal-title col-11 pb-2">
                                 You want to delete this post?
                             </h3>
-                            <button className="close" onClick={handleClickHide}>
+                            <button
+                                className="close row align-items-top pr-3 pt-1"
+                                onClick={handleClickHide}
+                            >
                                 <span>&times;</span>
                             </button>
                         </div>

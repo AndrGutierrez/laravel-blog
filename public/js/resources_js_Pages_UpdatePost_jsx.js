@@ -1,8 +1,8 @@
-(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_Pages_CreatePost_jsx"],{
+(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_Pages_UpdatePost_jsx"],{
 
-/***/ "./resources/js/Pages/CreatePost.jsx":
+/***/ "./resources/js/Pages/UpdatePost.jsx":
 /*!*******************************************!*\
-  !*** ./resources/js/Pages/CreatePost.jsx ***!
+  !*** ./resources/js/Pages/UpdatePost.jsx ***!
   \*******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -21,10 +21,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function CreatePost() {
+function CreatePost(_ref) {
+  var post = _ref.post;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
     className: "form-container container-fluid",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_Header__WEBPACK_IMPORTED_MODULE_2__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_PostForm__WEBPACK_IMPORTED_MODULE_3__.default, {})]
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_Header__WEBPACK_IMPORTED_MODULE_2__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_PostForm__WEBPACK_IMPORTED_MODULE_3__.default, {
+      post: post
+    })]
   });
 }
 
@@ -170,27 +173,19 @@ function PostForm(_ref) {
       values = _useState2[0],
       setValues = _useState2[1];
 
+  if (post !== undefined) {
+    setValues(post);
+  }
+
   var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false),
       _useState4 = _slicedToArray(_useState3, 2),
       success = _useState4[0],
       setSuccess = _useState4[1];
 
-  if (post !== undefined) {
-    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
-      setValues(function (values) {
-        return _objectSpread(_objectSpread({}, values), {}, {
-          title: post.title,
-          body: post.body,
-          file: post.file
-        });
-      });
-      console.log(values);
-    }, [post.title, post.body, post.file]);
-  }
-
   function handleSubmit(e) {
     e.preventDefault();
-    _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_2__.Inertia.post("/posts", values, {
+    console.log(values);
+    _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_2__.Inertia.post("/posts", data, {
       onSuccess: function onSuccess() {
         setSuccess(true);
         setTimeout(function () {
@@ -203,6 +198,7 @@ function PostForm(_ref) {
   function handleChange(e) {
     var key = e.target.id;
     var value = e.target.value;
+    console.log(e.target);
     setValues(function (values) {
       return _objectSpread(_objectSpread({}, values), {}, _defineProperty({}, key, value));
     }); // TODO

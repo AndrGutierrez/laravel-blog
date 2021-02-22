@@ -13,6 +13,7 @@
     <link href="{{ asset('/css/comment.css') }}" rel="stylesheet" />
     <link href="{{ asset('/css/miniauthor.css') }}" rel="stylesheet" />
     <link href="{{ asset('/css/floatinguser.css') }}" rel="stylesheet" />
+    <link href="{{ asset('/css/createButton.css') }}" rel="stylesheet" />
     <script src="{{ mix('/js/app.js') }}" defer></script>
   </head>
   <body>

@@ -11,20 +11,19 @@ use App\Http\Controllers\Backend\PostController;
 use Inertia\Inertia;
 
 
-//CHECK https://inertiajs.com/links
-/* Route::prefix("posts")->group(function(){ */
-/*     Route::get("/", [PageController::class, 'posts'])->middleware("auth"); */
-/*     Route::get('/create', [PostController::class, 'create'])->name('create'); */
-/* }); */
-
 Route::prefix('u/{user:slug}')->group(function(){
-    Route::get("post/{postid:id}/{post:slug?}", [PageController::class, 'post']);
+    Route::get("post/{postid:id}/{post:slug}", [PageController::class, 'post']);
     Route::get("/", [PageController::class, 'user']);
 });
 
-Route::post('posts/delete/{post:id}', [PostController::class, 'destroy'])->name('posts.destroy');
-//it should use delete method but it doesn't work in other way
-Route::post('posts/create', [PostController::class, 'create']);
+
+Route::prefix('posts')->group(function(){
+    Route::post('delete/{post:id}', [PostController::class, 'destroy'])->name('posts.destroy');
+    /*it should use delete method but it doesn't work in other way*/
+    Route::post('create', [PostController::class, 'create']);
+    /* FIXME */
+    Route::get('edit/{postid:id}/{post:slug}', [PostController::class, 'edit']);
+});
 
 
 

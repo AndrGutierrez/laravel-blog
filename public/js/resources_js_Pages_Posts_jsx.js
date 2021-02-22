@@ -14,9 +14,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _components_Header__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Header */ "./resources/js/components/Header.jsx");
-/* harmony import */ var _components_PostCardContainer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/PostCardContainer */ "./resources/js/components/PostCardContainer.jsx");
-/* harmony import */ var _components_HamburguerMenu__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/HamburguerMenu */ "./resources/js/components/HamburguerMenu.jsx");
-/* harmony import */ var _components_Footer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/Footer */ "./resources/js/components/Footer.jsx");
+/* harmony import */ var _components_Footer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/Footer */ "./resources/js/components/Footer.jsx");
+/* harmony import */ var _components_CreateButton__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/CreateButton */ "./resources/js/components/CreateButton.jsx");
+/* harmony import */ var _components_HamburguerMenu__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/HamburguerMenu */ "./resources/js/components/HamburguerMenu.jsx");
+/* harmony import */ var _components_PostCardContainer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/PostCardContainer */ "./resources/js/components/PostCardContainer.jsx");
+
 
 
 
@@ -30,10 +32,10 @@ function Posts(_ref) {
       csrf_token = _ref.csrf_token;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
     className: "posts-container",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_Header__WEBPACK_IMPORTED_MODULE_2__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_PostCardContainer__WEBPACK_IMPORTED_MODULE_3__.default, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_Header__WEBPACK_IMPORTED_MODULE_2__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_PostCardContainer__WEBPACK_IMPORTED_MODULE_6__.default, {
       posts: posts,
       csrf_token: csrf_token
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_HamburguerMenu__WEBPACK_IMPORTED_MODULE_4__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_Footer__WEBPACK_IMPORTED_MODULE_5__.default, {})]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_HamburguerMenu__WEBPACK_IMPORTED_MODULE_5__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_Footer__WEBPACK_IMPORTED_MODULE_3__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_CreateButton__WEBPACK_IMPORTED_MODULE_4__.default, {})]
   });
 }
 
@@ -41,10 +43,10 @@ function Posts(_ref) {
 
 /***/ }),
 
-/***/ "./resources/js/components/Button.jsx":
-/*!********************************************!*\
-  !*** ./resources/js/components/Button.jsx ***!
-  \********************************************/
+/***/ "./resources/js/components/CreateButton.jsx":
+/*!**************************************************!*\
+  !*** ./resources/js/components/CreateButton.jsx ***!
+  \**************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -54,23 +56,35 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
 
 
 
-var Button = function Button(_ref) {
-  var btn_style = _ref.btn_style,
-      btn_value = _ref.btn_value;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
-    type: "submit",
-    className: "btn ".concat(btn_style, " post-buttoncontainer__button edit btn col-lg-12 "),
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h5", {
-      className: "button-text m-0 py-1",
-      children: btn_value
-    })
+
+
+function CreateButton() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.InertiaLink, {
+    href: "/posts/create",
+    className: "button-link shadow",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+      className: "createButton bottom-right btn-primary row justify-content-center align-items-center position-fixed m-0 rounded-circle m-3 shadow",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h1", {
+        className: "mb-1 plus",
+        children: "+"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+        className: "internalCircle rounded-circle"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+      className: "createPost bottom-right p-3 position-fixed row align-items-center m-3 mr-5 col-3 alert-primary",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h5", {
+        className: "createPost-text",
+        children: "Create a new post"
+      })
+    })]
   });
-};
+}
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Button);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CreateButton);
 
 /***/ }),
 
@@ -273,14 +287,14 @@ function Modal(_ref) {
         className: "custom-modal min-vh-100 col-12",
         onClick: handleClickHide
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-        className: "modal-content py-2  col-10 col-md-7 col-lg-5 col-xl-4",
+        className: "modal-content py-2  col-10 col-md-8 col-lg-6 col-xl-5",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
           className: "modal-content__header row justify-content-between pr-3 pr-sm-4 pr-md-2",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h3", {
             className: "modal-title col-11 pb-2",
             children: "You want to delete this post?"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
-            className: "close",
+            className: "close row align-items-top pr-3 pt-1",
             onClick: handleClickHide,
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", {
               children: "\xD7"
@@ -390,7 +404,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _PostCard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./PostCard */ "./resources/js/components/PostCard.jsx");
-/* harmony import */ var _Button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Button */ "./resources/js/components/Button.jsx");
+/* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
 /* harmony import */ var _Modal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Modal */ "./resources/js/components/Modal.jsx");
 
 
@@ -431,12 +445,14 @@ function PostCardContainer(_ref) {
     setSelectedPost(post); // console.log(displayed, post.title);
   }
 
-  function handleClickEdit() {
-    console.log("I was clicked");
+  function handleClickEdit(post) {
+    // TODO
+    console.log("posts/edit/".concat(post.id, "/").concat(post.slug));
+    _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_3__.Inertia.get("posts/edit/".concat(post.id, "/").concat(post.slug));
   }
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-    className: "background container-fluid col-12",
+    className: "container-fluid col-12",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Modal__WEBPACK_IMPORTED_MODULE_4__.default, {
       post: selectedPost,
       csrf_token: csrf_token,
@@ -449,7 +465,9 @@ function PostCardContainer(_ref) {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("button", {
           className: "btn btn-success edit post-buttoncontainer__button col-12 col-sm-5 col-md-5 col-lg-12",
           type: "button",
-          onClick: handleClickEdit,
+          onClick: function onClick() {
+            return handleClickEdit(post);
+          },
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
             className: "button-text",
             children: "Edit"

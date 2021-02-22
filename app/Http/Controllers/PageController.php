@@ -27,7 +27,7 @@ class PageController extends Controller
 
         return Inertia::render('Post', [
             'author'=>$post_author[0],
-            'post'=>$page_post[0], 
+            'post'=>$page_post[0],
             'comments'=>$comments
         ]);
     }

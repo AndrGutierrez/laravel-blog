@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import PostCard from "./PostCard";
-import Button from "./Button";
+import { Inertia } from "@inertiajs/inertia";
 import Modal from "./Modal";
 
 function PostCardContainer({ posts, csrf_token }) {
@@ -13,12 +13,14 @@ function PostCardContainer({ posts, csrf_token }) {
         // console.log(displayed, post.title);
     }
 
-    function handleClickEdit() {
-        console.log("I was clicked");
+    function handleClickEdit(post) {
+        // TODO
+        console.log(`posts/edit/${post.id}/${post.slug}`);
+        Inertia.get(`posts/edit/${post.id}/${post.slug}`);
     }
 
     return (
-        <div className="background container-fluid col-12">
+        <div className="container-fluid col-12">
             <Modal
                 post={selectedPost}
                 csrf_token={csrf_token}
@@ -30,7 +32,7 @@ function PostCardContainer({ posts, csrf_token }) {
                     <button
                         className="btn btn-success edit post-buttoncontainer__button col-12 col-sm-5 col-md-5 col-lg-12"
                         type="button"
-                        onClick={handleClickEdit}
+                        onClick={() => handleClickEdit(post)}
                     >
                         <div className="button-text">Edit</div>
                         <div className="animated-text d-none">Edit</div>

@@ -1,9 +1,9 @@
-(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_Pages_CreatePost_jsx"],{
+(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_Pages_EditPost_jsx"],{
 
-/***/ "./resources/js/Pages/CreatePost.jsx":
-/*!*******************************************!*\
-  !*** ./resources/js/Pages/CreatePost.jsx ***!
-  \*******************************************/
+/***/ "./resources/js/Pages/EditPost.jsx":
+/*!*****************************************!*\
+  !*** ./resources/js/Pages/EditPost.jsx ***!
+  \*****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -21,10 +21,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function CreatePost() {
+function CreatePost(_ref) {
+  var post = _ref.post;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
     className: "form-container container-fluid",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_Header__WEBPACK_IMPORTED_MODULE_2__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_PostForm__WEBPACK_IMPORTED_MODULE_3__.default, {})]
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_Header__WEBPACK_IMPORTED_MODULE_2__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_PostForm__WEBPACK_IMPORTED_MODULE_3__.default, {
+      post: post
+    })]
   });
 }
 
