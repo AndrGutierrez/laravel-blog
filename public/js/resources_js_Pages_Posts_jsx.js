@@ -214,7 +214,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var MiniAuthor = function MiniAuthor(_ref) {
   var creation = _ref.creation,
-      title_style = _ref.title_style;
+      title_style = _ref.title_style,
+      children = _ref.children;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
     className: "postauthor row col-12",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.InertiaLink, {
@@ -225,12 +226,12 @@ var MiniAuthor = function MiniAuthor(_ref) {
         alt: "user's profilepic",
         className: "postauthor-img img-thumbnail"
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.InertiaLink, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.InertiaLink, {
       href: "/u/".concat(creation.user.slug),
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h6", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h5", {
         className: "postauthor-name ".concat(title_style),
         children: creation.user.name
-      })
+      }), children]
     })]
   });
 };
@@ -310,12 +311,12 @@ function Modal(_ref) {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
           className: "modal-buttoncontainer row justify-content-center pt-3",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", {
-            className: "btn-secondary btn cancel post-buttoncontainer__button col-11 col-sm-5",
+            className: "btn-secondary btn cancel button col-11 col-sm-5",
             type: "button",
             value: "nah",
             onClick: handleClickHide
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", {
-            className: "btn-primary btn send post-buttoncontainer__button col-11 col-sm-5",
+            className: "btn-primary btn send button col-11 col-sm-5",
             type: "button",
             value: "yes!",
             onClick: function onClick() {
@@ -463,7 +464,7 @@ function PostCardContainer(_ref) {
         post: post,
         csrf_token: csrf_token,
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("button", {
-          className: "btn btn-success edit post-buttoncontainer__button col-12 col-sm-5 col-md-5 col-lg-12",
+          className: "btn btn-success edit button col-12 col-sm-5 col-md-5 col-lg-12",
           type: "button",
           onClick: function onClick() {
             return handleClickEdit(post);
@@ -476,7 +477,7 @@ function PostCardContainer(_ref) {
             children: "Edit"
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("button", {
-          className: "btn btn-danger delete post-buttoncontainer__button col-12 col-sm-5 col-md-5 col-lg-12",
+          className: "btn btn-danger delete button col-12 col-sm-5 col-md-5 col-lg-12",
           type: "button",
           onClick: function onClick() {
             return DisplayModal(post);

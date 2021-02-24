@@ -1,8 +1,8 @@
-.post-buttoncontainer__button {
+.button {
     font-size: 1.25em;
     transition: 0.5s;
     border-width: 3px;
-    margin: 2px 5px;
+    /* margin: 2px 5px; */
     max-height: 50px;
     background-color: white;
     box-sizing: border-box;
@@ -22,7 +22,7 @@
     position: absolute;
 }
 
-.post-buttoncontainer__button:hover .animated-text {
+.button:hover .animated-text {
     animation-fill-mode: forwards;
 }
 .post-buttoncontainer__button:hover .button-text {

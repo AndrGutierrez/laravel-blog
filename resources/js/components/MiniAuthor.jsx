@@ -1,7 +1,7 @@
 import React from "react";
 import { InertiaLink } from "@inertiajs/inertia-react";
 
-const MiniAuthor = ({ creation, title_style }) => {
+const MiniAuthor = ({ creation, title_style, children }) => {
     return (
         <div className="postauthor row col-12">
             <InertiaLink
@@ -15,9 +15,10 @@ const MiniAuthor = ({ creation, title_style }) => {
                 />
             </InertiaLink>
             <InertiaLink href={`/u/${creation.user.slug}`}>
-                <h6 className={`postauthor-name ${title_style}`}>
+                <h5 className={`postauthor-name ${title_style}`}>
                     {creation.user.name}
-                </h6>
+                </h5>
+                {children}
             </InertiaLink>
         </div>
     );

@@ -31,7 +31,7 @@ function Post(_ref) {
       comments = _ref.comments;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_Header__WEBPACK_IMPORTED_MODULE_2__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-      className: "post-container row container-fluid justify-content-center mx-0",
+      className: "post-container row container-fluid justify-content-center px-0 mx-0 mt-5",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_FloatingUser__WEBPACK_IMPORTED_MODULE_4__.default, {
         user: author
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
@@ -71,16 +71,21 @@ __webpack_require__.r(__webpack_exports__);
 
 var Comment = function Comment(_ref) {
   var comment = _ref.comment;
+  console.log(comment);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-    className: "d-flex row  bg-white col-12 p-4 m-2",
+    className: "card row col-12 m-1 py-2",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
       className: "d-flex flex-row user row col-12 user-container",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_MiniAuthor__WEBPACK_IMPORTED_MODULE_2__.default, {
         creation: comment,
-        title_style: "font-weight-bold comment-user"
+        title_style: "comment-user mb-0",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", {
+          className: "text-secondary",
+          children: comment.created_at.substring(0, 10)
+        })
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
-      className: "cols-12 row pl-5",
+      className: "cols-12 row pl-5 py-2",
       children: comment.content
     })]
   });
@@ -106,35 +111,32 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
 
 var CommentForm = function CommentForm() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("form", {
     action: "",
-    className: "col-11 row justify-content-center",
+    className: "col-12 col-lg-11 row justify-content-center px-0 my-2",
     method: "POST",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("textarea", _defineProperty({
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("textarea", {
       id: "",
-      className: "",
-      rows: "5"
-    }, "className", "no-resize form-control col-12 row")), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-      className: "row",
+      rows: "5",
+      className: "no-resize form-control col-12 row"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+      className: "row mt-2 px-0 justify-content-end col-12",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", {
         type: "submit",
         value: "cancel",
         onChange: function onChange() {
           return;
         },
-        className: "btn btn-secondary col-md-5"
+        className: "btn btn-secondary button cancel col-6 col-sm-4 col-md-4"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", {
         type: "delete",
         value: "send",
         onChange: function onChange() {
           return;
         },
-        className: "btn btn-primary col-md-5"
+        className: "btn btn-primary button send col-6 col-sm-4 col-md-4"
       })]
     })]
   });
@@ -202,14 +204,14 @@ function FloatingUser(_ref) {
   var post = _ref.post,
       user = _ref.user;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-    className: "card floating-user col-11 col-sm-11 col-md-4 col-lg-4 row m-2 h-25  shadow-sm",
+    className: "card floating-user col-11 col-sm-11 col-md-4 col-lg-4 row m-2 h-25 shadow-sm py-2",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-      className: "author card-body col-12 row align-items-center",
+      className: "author col-12 align-items-center",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-        className: "image-container col-12 col-sm-4 col-md-12 col-lg-12  row justify-content-center m-0 p-0",
+        className: "image-container col-12 col-md-12 col-lg-12row justify-content-center m-0 p-0",
         id: "profilepic_container",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-          className: "author-profile-pic-container p-2",
+          className: "author-profile-pic-container d-flex justify-content-center p-2 ",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("img", {
             src: user.profile_picture,
             alt: "Profile picture from user",
@@ -218,13 +220,13 @@ function FloatingUser(_ref) {
           })
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-        className: "author-name col-12 col-sm-7 col-md-12 row m-2",
+        className: "author-name col-12 p-0",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h2", {
           className: "author-nickname card-title text-center col-12",
           children: user.nickname
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("a", {
           href: "{{ route('user', $post->user )}}",
-          className: "author-name card-text text-center col-12",
+          className: "author-name card-text text-center col-12 p-0",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h5", {
             className: "",
             children: user.name
@@ -259,9 +261,9 @@ __webpack_require__.r(__webpack_exports__);
 function FullPost(_ref) {
   var post = _ref.post;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-    className: "postcontainer container col-12 row justify-content-center",
+    className: "postcontainer container col-12 col-lg-11 row justify-content-center p-0",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-      className: "postcontent px-5 pt-3 mt-2 col-lg-11",
+      className: "postcontent px-4 px-lg-5 pt-3 mt-2 col-lg-11",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h2", {
         className: "container-title display-4 row",
         children: post.title
@@ -349,7 +351,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var MiniAuthor = function MiniAuthor(_ref) {
   var creation = _ref.creation,
-      title_style = _ref.title_style;
+      title_style = _ref.title_style,
+      children = _ref.children;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
     className: "postauthor row col-12",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.InertiaLink, {
@@ -360,12 +363,12 @@ var MiniAuthor = function MiniAuthor(_ref) {
         alt: "user's profilepic",
         className: "postauthor-img img-thumbnail"
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.InertiaLink, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.InertiaLink, {
       href: "/u/".concat(creation.user.slug),
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h6", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h5", {
         className: "postauthor-name ".concat(title_style),
         children: creation.user.name
-      })
+      }), children]
     })]
   });
 };

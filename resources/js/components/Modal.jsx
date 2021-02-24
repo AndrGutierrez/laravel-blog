@@ -46,13 +46,13 @@ function Modal({ post, csrf_token, displayed, setDisplayed }) {
 
                         <div className="modal-buttoncontainer row justify-content-center pt-3">
                             <input
-                                className="btn-secondary btn cancel post-buttoncontainer__button col-11 col-sm-5"
+                                className="btn-secondary btn cancel button col-11 col-sm-5"
                                 type="button"
                                 value="nah"
                                 onClick={handleClickHide}
                             />
                             <input
-                                className="btn-primary btn send post-buttoncontainer__button col-11 col-sm-5"
+                                className="btn-primary btn send button col-11 col-sm-5"
                                 type="button"
                                 value="yes!"
                                 onClick={() => handleClickDelete(post)}
