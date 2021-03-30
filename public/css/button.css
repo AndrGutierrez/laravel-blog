@@ -2,9 +2,6 @@
     font-size: 1.25em;
     transition: 0.5s;
     border-width: 3px;
-    /* margin: 2px 5px; */
-    max-height: 50px;
-    background-color: white;
     box-sizing: border-box;
     display: flex;
     box-sizing: border-box;
@@ -36,21 +33,6 @@
 /*     animation: fontChange; */
 /* } */
 
-.edit {
-    color: #2d995b;
-}
-
-.delete {
-    color: #c51f1a;
-}
-
-.cancel {
-    color: gray;
-}
-
-.send {
-    color: #227dc7;
-}
 @keyframes FadeText {
     /* 0% { */
     /*     transform: translateY(100px); */

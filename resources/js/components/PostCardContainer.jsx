@@ -30,7 +30,7 @@ function PostCardContainer({ posts, csrf_token }) {
             {posts.map((post) => (
                 <PostCard post={post} key={post.id} csrf_token={csrf_token}>
                     <button
-                        className="btn btn-success edit button col-12 col-sm-5 col-md-5 col-lg-12"
+                        className="btn btn-outline-success button my-1 col-12 col-sm-5 col-md-5 col-lg-12"
                         type="button"
                         onClick={() => handleClickEdit(post)}
                     >
@@ -38,7 +38,7 @@ function PostCardContainer({ posts, csrf_token }) {
                         <div className="animated-text d-none">Edit</div>
                     </button>
                     <button
-                        className="btn btn-danger delete button col-12 col-sm-5 col-md-5 col-lg-12"
+                        className="btn btn-outline-danger button  col-12 col-sm-5 col-md-5 col-lg-12"
                         type="button"
                         onClick={() => DisplayModal(post)}
                     >

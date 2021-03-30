@@ -8,3 +8,11 @@
 .gray {
     color: gray;
 }
+.options {
+    right: 10px;
+    top: 0;
+    cursor: pointer;
+}
+.options {
+    z-index: 1;
+}

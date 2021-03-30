@@ -8,6 +8,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\Backend\PostController;
+use App\Http\Controllers\Backend\CommentController;
 use Inertia\Inertia;
 
 
@@ -25,6 +26,9 @@ Route::prefix('posts')->group(function(){
     Route::get('edit/{postid:id}/{post:slug}', [PostController::class, 'edit']);
 });
 
+Route::prefix('comments')->group(function(){
+    Route::post('delete/{comment:id}', [CommentController::class, 'destroy'])->name('comments.destroy');
+});
 
 
 Auth::routes();
@@ -35,5 +39,9 @@ Route::get("/home", [
 ])->name("home");
 
 Route::resource('posts', 'App\Http\Controllers\Backend\PostController')
+    ->middleware('auth')
+    ->except('show', 'destroy');
+
+Route::resource('comments', 'App\Http\Controllers\Backend\CommentController')
     ->middleware('auth')
     ->except('show', 'destroy');

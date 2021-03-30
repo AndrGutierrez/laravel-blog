@@ -4,7 +4,7 @@ import MiniAuthor from "./MiniAuthor";
 const PostCard = ({ post, children }) => {
     return (
         <div
-            className="post bg-white row table-bordered row-cols-lg-6 row-cols-xs-1 col-lg-8"
+            className="post bg-white row border row-cols-lg-6 row-cols-xs-1 col-lg-8"
             key={post.id}
             tabIndex="-1"
         >

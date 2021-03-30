@@ -167,7 +167,7 @@ function Header() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("header", {
     className: "navbar shadow fixed-top container-fluid",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.InertiaLink, {
-      href: "",
+      href: "/",
       className: "header-title col-8 col-sm-6 col-md-3 col-lg-4 col-xl-5",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h3", {
         className: "navbar-title display-4",
@@ -176,12 +176,14 @@ function Header() {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
       className: "header-links row align-items-center col-8 col-sm-6 col-md-5 col-lg-4 d-none d-sm-flex",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.InertiaLink, {
+        href: "/",
         className: "nav-link",
         children: "Home"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.InertiaLink, {
         className: "nav-link",
         children: "Profile"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.InertiaLink, {
+        href: "/posts",
         className: "nav-link",
         children: "Explore"
       })]
@@ -356,7 +358,7 @@ var PostCard = function PostCard(_ref) {
   var post = _ref.post,
       children = _ref.children;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-    className: "post bg-white row table-bordered row-cols-lg-6 row-cols-xs-1 col-lg-8",
+    className: "post bg-white row border row-cols-lg-6 row-cols-xs-1 col-lg-8",
     tabIndex: "-1",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
       className: "post-content col-lg-9",
@@ -464,7 +466,7 @@ function PostCardContainer(_ref) {
         post: post,
         csrf_token: csrf_token,
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("button", {
-          className: "btn btn-success edit button col-12 col-sm-5 col-md-5 col-lg-12",
+          className: "btn btn-outline-success button my-1 col-12 col-sm-5 col-md-5 col-lg-12",
           type: "button",
           onClick: function onClick() {
             return handleClickEdit(post);
@@ -477,7 +479,7 @@ function PostCardContainer(_ref) {
             children: "Edit"
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("button", {
-          className: "btn btn-danger delete button col-12 col-sm-5 col-md-5 col-lg-12",
+          className: "btn btn-outline-danger button  col-12 col-sm-5 col-md-5 col-lg-12",
           type: "button",
           onClick: function onClick() {
             return DisplayModal(post);

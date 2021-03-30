@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Comment;
 use Illuminate\Http\Request;
 use App\Http\Requests\CommentRequest;
+use Illuminate\Support\Facades\Storage;
 
 class CommentController extends Controller
 {
@@ -29,8 +30,8 @@ class CommentController extends Controller
     {
         //
         $request = $request->all();
-        Post::create([
-            'user_id'=> auth()->user->id
+        Comment::create([
+            'user_id' => auth()->user()->id,
         ] + $request);
         return back();
 
@@ -67,7 +68,16 @@ class CommentController extends Controller
      */
     public function update(Request $request, Comment $comment)
     {
-        //
+        $update_request = ['content' => $request->content];
+
+        $comment->update($update_request);
+        if($request->file('file')){
+            Storage::disk('public')->delete($comment->image);
+            $comment->image = $request->file('file')->store('posts', 'public');
+            $comment->save();
+        }
+
+        return back();
     }
 
     /**
@@ -79,5 +89,7 @@ class CommentController extends Controller
     public function destroy(Comment $comment)
     {
         //
+        $comment->delete();
+        return back();
     }
 }
