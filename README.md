@@ -1,10 +1,6 @@
 # Laravel Blog
 A full stack web app made with laravel, react, inertiajs and bootstrap
-**Table of Contents**
 
-[TOCM]
-
-[TOC]
 ### Installation
 #### Database Setup
 Create a database named "laravel_blog" (here is an example made in mariadb monitor)
