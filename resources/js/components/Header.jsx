@@ -1,8 +1,32 @@
 import React, { useEffect, useState } from "react";
 import { InertiaLink } from "@inertiajs/inertia-react";
 import SearchForm from "./SearchForm";
+import { Inertia } from "@inertiajs/inertia";
 
-function Header() {
+async function a({ user }) {
+    // const user = await fetch(`http://localhost:8000/authuser`).then(user=>user);
+    let profileRoute = `http://localhost:8000/u/${user.slug}`;
+    if (user.name == "") {
+        user = {
+            name: "",
+            email: "",
+            slug: ""
+        };
+        profileRoute = "http://localhost:8000/login";
+    }
+}
+function Header({user}) {
+
+    let profileRoute = `http://localhost:8000/u/${user.slug}`;
+    if (user.name == "") {
+        user = {
+            name: "",
+            email: "",
+            slug: ""
+        };
+        profileRoute = "http://localhost:8000/login";
+    }
+
     return (
         <header className="navbar shadow fixed-top container-fluid">
             <InertiaLink
@@ -15,7 +39,9 @@ function Header() {
                 <InertiaLink href="/" className="nav-link">
                     Home
                 </InertiaLink>
-                <InertiaLink className="nav-link">Profile</InertiaLink>
+                <InertiaLink className="nav-link" href={profileRoute}>
+                    Profile
+                </InertiaLink>
                 <InertiaLink href="/posts" className="nav-link">
                     Explore
                 </InertiaLink>

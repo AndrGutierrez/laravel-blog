@@ -9,6 +9,7 @@ use App\Models\User;
 use Inertia\Inertia;
 
 use function PHPSTORM_META\type;
+use Illuminate\Support\Facades\Auth;
 
 class PageController extends Controller
 {
@@ -28,14 +29,36 @@ class PageController extends Controller
         return Inertia::render('Post', [
             'author'=>$post_author[0],
             'post'=>$page_post[0],
-            'comments'=>$comments
+            'comments'=>$comments,
+            'user'=> Auth::user()
         ]);
     }
 
-    public function user(User $user)
+   /* public function user($userslug){ */
+   /*    $posts =Post::with('user')->where("user_id", "=", $user->id)->get(); */
+
+   /*    return Inertia::render('User', [ */
+   /*        'user'=>$user, */
+   /*        'posts' => $posts */
+   /*    ]); */
+   /* } */
+   public function user($userslug)
     {
+      $user = User::where("slug", "=", $userslug)->get()[0];
+      $posts =Post::with('user')->where("user_id", "=", $user->id)->get();
         return Inertia::render('User', [
-            'user'=>$user
+           'user'=>$user,
+           'posts'=>$posts
         ]);
     }
+
+
+   public function __invoke()
+    {
+        return Inertia::render('Home', [
+           'user'=>Auth::user(),
+           'posts'=>Post::with('user')->latest()->take(5)->get()
+        ]);
+    }
+
 }

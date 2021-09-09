@@ -1,7 +1,23 @@
+import React, { useState, useEffect } from "react";
 import { InertiaLink } from "@inertiajs/inertia-react";
 import MiniAuthor from "./MiniAuthor";
 
-const PostCard = ({ post, children }) => {
+const PostCard = ({ user, post, children }) => {
+    const [isAuthor, setIsAuthor] = useState(false);
+    useEffect(() => {
+        if (user == null) {
+            user = {
+                name: "",
+                email: ""
+            };
+        }
+
+        if (post.user_id == user.id) {
+            setIsAuthor(true);
+        }
+    }, []);
+
+    // TODO solo mostrar los botones si el id de usuario es el mismo que el post.user_id
     return (
         <div
             className="post bg-white row border row-cols-lg-6 row-cols-xs-1 col-lg-8"
@@ -28,9 +44,11 @@ const PostCard = ({ post, children }) => {
                     <MiniAuthor creation={post} title_style="gray"></MiniAuthor>
                 </div>
             </div>
-            <div className="post-buttoncontainer col-sm-12 col-lg-3">
-                {children}
-            </div>
+            {isAuthor && (
+                <div className="post-buttoncontainer col-sm-12 col-lg-3 justify-content-around">
+                    {children}
+                </div>
+            )}
         </div>
     );
 };

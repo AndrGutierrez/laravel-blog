@@ -3,10 +3,13 @@ import PostCard from "./PostCard";
 import { Inertia } from "@inertiajs/inertia";
 import Modal from "./Modal";
 
-function PostCardContainer({ posts, csrf_token }) {
+function PostCardContainer({ user, posts, csrf_token }) {
     const [displayed, setDisplayed] = useState(false);
     const [selectedPost, setSelectedPost] = useState(null);
 
+    if (posts.lenght <= 0) {
+        posts = [];
+    }
     function DisplayModal(post) {
         setDisplayed(true);
         setSelectedPost(post);
@@ -15,7 +18,6 @@ function PostCardContainer({ posts, csrf_token }) {
 
     function handleClickEdit(post) {
         // TODO
-        console.log(`posts/edit/${post.id}/${post.slug}`);
         Inertia.get(`posts/edit/${post.id}/${post.slug}`);
     }
 
@@ -27,24 +29,33 @@ function PostCardContainer({ posts, csrf_token }) {
                 displayed={displayed}
                 setDisplayed={setDisplayed}
             ></Modal>
-            {posts.map((post) => (
-                <PostCard post={post} key={post.id} csrf_token={csrf_token}>
-                    <button
-                        className="btn btn-outline-success button my-1 col-12 col-sm-5 col-md-5 col-lg-12"
-                        type="button"
-                        onClick={() => handleClickEdit(post)}
-                    >
-                        <div className="button-text">Edit</div>
-                        <div className="animated-text d-none">Edit</div>
-                    </button>
-                    <button
-                        className="btn btn-outline-danger button  col-12 col-sm-5 col-md-5 col-lg-12"
-                        type="button"
-                        onClick={() => DisplayModal(post)}
-                    >
-                        <div className="animated-text d-none">Delete</div>
-                        <div className="button-text">Delete</div>
-                    </button>
+            {posts.map(post => (
+                <PostCard
+                    user={user}
+                    post={post}
+                    key={post.id}
+                    csrf_token={csrf_token}
+                >
+                    <div className="my-2 col-12 col-sm-6 col-md-6 col-lg-12 row">
+                        <button
+                            className="btn btn-outline-success button col-12"
+                            type="button"
+                            onClick={() => handleClickEdit(post)}
+                        >
+                            <div className="button-text">Edit</div>
+                            <div className="animated-text d-none">Edit</div>
+                        </button>
+                    </div>
+                    <div className="my-2 col-12 col-sm-6 col-md-6 col-lg-12 row">
+                        <button
+                            className="btn btn-outline-danger button col-12"
+                            type="button"
+                            onClick={() => DisplayModal(post)}
+                        >
+                            <div className="animated-text d-none">Delete</div>
+                            <div className="button-text">Delete</div>
+                        </button>
+                    </div>
                 </PostCard>
             ))}
         </div>

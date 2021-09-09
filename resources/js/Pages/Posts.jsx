@@ -5,11 +5,12 @@ import CreateButton from "../components/CreateButton";
 import HamburguerMenu from "../components/HamburguerMenu";
 import PostCardContainer from "../components/PostCardContainer";
 
-function Posts({ posts, csrf_token }) {
+function Posts({user,  posts, csrf_token }) {
     return (
         <div className="posts-container">
-            <Header></Header>
+            <Header user={user}></Header>
             <PostCardContainer
+                user={user}
                 posts={posts}
                 csrf_token={csrf_token}
             ></PostCardContainer>

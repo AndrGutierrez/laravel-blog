@@ -2,6 +2,11 @@ import React from "react";
 import { InertiaLink } from "@inertiajs/inertia-react";
 
 const MiniAuthor = ({ creation, title_style, children }) => {
+    if (creation.user.profile_picture == null) {
+        creation.user.profile_picture =
+            "https://www.kindpng.com/picc/m/24-248253_user-profile-default-image-png-clipart-png-download.png";
+    }
+
     return (
         <div className="postauthor row col-12">
             <InertiaLink

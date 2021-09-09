@@ -1,14 +1,28 @@
 import React, { useState } from "react";
+import { Inertia } from "@inertiajs/inertia";
 import MiniAuthor from "./MiniAuthor";
 import Options from "./Options";
 const Comment = ({ comment, id }) => {
     const [displayed, setDisplayed] = useState(false);
     const [formDisplayed, setFormDisplayed] = useState(false);
+
+    const [values, setValues] = useState({
+        comment: comment.content
+    });
+
     function DisplayOptions() {
         setDisplayed(!displayed);
     }
-    function handleUpdate() {
-        Inertia.update(`/comments/update/${comment.id}`);
+    function handleSubmit() {
+        Inertia.patch(`/comments/update/${comment.id}`);
+    }
+    function handleChange(e) {
+        const key = e.target.id;
+        const value = e.target.value;
+        setValues(values => ({
+            ...values,
+            [key]: value
+        }));
     }
     return (
         <div className="card row col-12 m-1 py-2" id={id}>
@@ -45,24 +59,29 @@ const Comment = ({ comment, id }) => {
                 </React.Fragment>
             )}
             {formDisplayed && (
-                <form action={handleUpdate}>
+                <form onSubmit={handleSubmit}>
                     <div className="form-group">
                         <label htmlFor="comment-update">
                             Editando comentario
                         </label>
                         <textarea
-                            id=""
-                            name="comment-update"
+                            id="comment"
+                            name="comment"
                             className="form-control no-resize"
-                            value={comment.content}
+                            value={values.comment}
+                            onChange={handleChange}
                         ></textarea>
                     </div>
                     <input
                         type="submit"
                         value="Cancel"
-                        class="btn btn-secondary mr-1"
+                        className="btn btn-secondary mr-1"
                     />
-                    <input type="submit" value="Edit" class="btn btn-primary" />
+                    <input
+                        type="submit"
+                        value="Submit"
+                        className="btn btn-primary"
+                    />
                 </form>
             )}
         </div>

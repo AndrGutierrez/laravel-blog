@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PostRequest;
 use App\Models\Post;
+use Illuminate\Support\Facades\Auth;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 /* use Illuminate\Support\Facades\Redirect as FacadesRedirect; */
@@ -30,6 +32,7 @@ class PostController extends Controller
         $posts = Post::with('user')->latest()->get();
         $token = csrf_token();
         return Inertia::render('Posts', [
+            'user'=>Auth::user(),
             'posts'=>$posts,
             'csrf_token'=>$token
         ]);
@@ -38,7 +41,9 @@ class PostController extends Controller
 
     public function create()
     {
-        return Inertia::render('CreatePost');
+        return Inertia::render('CreatePost', [
+            'user'=>Auth::user(),
+        ]);
     }
 
     /**

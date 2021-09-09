@@ -1,16 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
+import Hero from "../components/Hero";
+import Header from "../components/Header";
+import PostCardContainer from "../components/PostCardContainer";
+import CreateButton from "../components/CreateButton";
 
-const Home = () => {
-    let foo = "React";
-    const bar = "Laravel";
+const Home = ({ user, posts }) => {
+    if (user == null) {
+        user = {
+            name: "",
+            email: ""
+        };
+    }
 
     return (
-        <div className="container">
-            <h1 className="row justify-content-center col-sm-11 col-md-8 col-lg-8">
-                Hello mom, I used {foo} + {bar} to be here on internet. Isn't
-                that wacky?
-            </h1>
-        </div>
+        <React.Fragment>
+            <Header user={user}></Header>
+            <Hero></Hero>
+            <PostCardContainer posts={posts}></PostCardContainer>
+            <CreateButton></CreateButton>
+        </React.Fragment>
     );
 };
 
